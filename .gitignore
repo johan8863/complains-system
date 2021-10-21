@@ -1,3 +1,4 @@
 .vscode
 db.tar.gz
+db.sqlite3
 shell.py
