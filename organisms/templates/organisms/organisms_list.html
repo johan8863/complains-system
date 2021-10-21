@@ -1,0 +1,30 @@
+{% extends 'general/welcome.html' %}
+
+{% block workspace %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for organism in organisms %}
+            <tr>
+                <td>{{ organism.name }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{% url 'organisms_detail' organism.id %}">Detalles</a>
+                    <a class="btn btn-primary" href="{% url 'organisms_update' organism.id %}">Actualizar</a>
+                    <a class="btn btn-danger" href="{% url 'organisms_delete' organism.id %}">Eliminar</a>
+                </td>
+            </tr>
+        {% empty %}
+            <p>No existen organismos en la base de datos <a href="{% url 'organisms_create' %}">Agregar</a></p>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a class="btn btn-primary" href="{% url 'organisms_create' %}">Nuevo</a>
+
+{% endblock workspace %}

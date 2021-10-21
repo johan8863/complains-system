@@ -1,0 +1,6 @@
+1 - Add several submit buttons to the views for creating and updating models
+    with the goal of allowing to add and add another, add and coninue editing
+    and the defaul add behavior.
+2 - Debug the fact that meta options for model Person are not working properly
+    when the existing Person exception is thrown in the create and update views
+    for the Promoter model.

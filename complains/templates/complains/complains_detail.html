@@ -1,0 +1,15 @@
+{% extends 'general/welcome.html' %}
+
+{% block workspace %}
+
+{{ complain.reception_date }}
+{{ complain.promoter }}
+{{ complain.demmanded_entity }}
+{{ complain.demmanded_person }}
+{{ complain.management_level }}
+{{ complain.belonging_entity }}
+{{ complain.problem }}
+
+<a href="{% url 'complains_list' %}">Listado de quejas</a>
+
+{% endblock workspace %}

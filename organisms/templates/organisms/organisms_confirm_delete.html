@@ -1,0 +1,11 @@
+{% extends 'general/welcome.html' %}
+
+{% block workspace %}
+
+<form method="POST"> {% csrf_token %}
+    <p>¿Está seguro de eliminar el organismo seleccionado?</p>
+    <input class="btn btn-primary" type="submit" value="Eliminar">
+    <a class="btn btn-danger" href="{% url 'organisms_list' %}">Cancelar</a>
+</form>
+
+{% endblock workspace %}

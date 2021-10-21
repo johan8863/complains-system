@@ -1,0 +1,36 @@
+{% extends 'general/welcome.html' %}
+
+{% block workspace %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Promovente</th>
+            <th>Entidad Demandada</th>
+            <th>Persona Demandada</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for complain in complains %}
+            <tr>
+                <td>{{ complain.reception_date }}</td>
+                <td>{{ complain.promoter }}</td>
+                <td>{{ complain.demmanded_entity }}</td>
+                <td>{{ complain.demmanded_person }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{% url 'complains_detail' complain.id %}">Detalles</a>
+                    <a class="btn btn-primary" href="{% url 'complains_update' complain.id %}">Actualizar</a>
+                    <a class="btn btn-danger" href="{% url 'complains_delete' complain.id %}">Eliminar</a>
+                </td>
+            </tr>
+        {% empty %}
+            <p>No existen quejas en la base de datos <a href="{% url 'complains_create' %}">Agregar</a></p>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a class="btn btn-primary" href="{% url 'complains_create' %}">Nuevo</a>
+
+{% endblock workspace %}

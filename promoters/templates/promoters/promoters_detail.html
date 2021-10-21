@@ -1,0 +1,14 @@
+{% extends 'general/welcome.html' %}
+
+{% block workspace %}
+
+{{ promoter.person }}
+{{ promoter.age }}
+{{ promoter.get_school_level_display }}
+{{ promoter.occupation }}
+{{ promoter.address }}
+{{ promoter.phone_or_place }}
+
+<a href="{% url 'promoters_list' %}">Listado de Promoventes</a>
+
+{% endblock workspace %}

@@ -1,0 +1,48 @@
+{% extends 'general/welcome.html' %}
+{% load widget_tweaks %}
+
+{% block workspace %}
+
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <form method="POST"> {% csrf_token %}
+            <div class="mb-2">
+                <label for="name" class="form-label">Nombre: </label>
+                {{ form.name|add_class:"form-control"|attr:"id:name" }}
+                {% if form.name.errors %}
+                    {% for error in form.name.errors %}
+                        <small class="form-text text-danger"> {{ error }} </small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="mb-2">
+                <label for="address" class="form-label">Dirección: </label>
+                {{ form.address|add_class:"form-control"|attr:"id:address" }}
+                {% if form.address.errors %}
+                    {% for error in form.address.errors %}
+                        <small class="form-text text-danger"> {{ error }} </small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="mb-2">
+                <label for="organism" class="form-label">Organismo: </label>
+                {{ form.organism|add_class:"form-control"|attr:"id:organism" }}
+                {% if form.organism.errors %}
+                    {% for error in form.organism.errors %}
+                        <small class="form-text text-danger"> {{ error }} </small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit">Guardar</button>
+                <a class="btn btn-primary" href="{% url 'entities_list' %}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+
+
+
+{% endblock workspace %}

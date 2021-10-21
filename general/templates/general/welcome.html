@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'general/bootstrap5/css/bootstrap.min.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container mt-1 pb-2">
+
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light mb-2">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        {% block nav %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="gestion" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false" href="#">
+                                Gestión
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="gestion">
+                                <li><a class="dropdown-item" href="{% url 'persons_list' %}">personas</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'promoters_list' %}">promoventes</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'organisms_list' %}">organismos</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'entities_list' %}">entidades</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'complains_list' %}">quejas</a></li>
+                            </ul>
+                        </li>
+                        {% endblock nav %}
+                    </ul>
+                    {% block login_out %}
+                    <a class="me-2 btn btn-danger" href="{% url 'logout' %}">Salir</a>
+                    {% endblock login_out %}
+                </div>
+            </div>
+        </nav>
+
+        {% block content %}
+
+        {% block workspace %}
+
+        {% endblock workspace %}
+
+        {% endblock content %}
+
+    </div>
+    <script src="{% static 'general/bootstrap5/js/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>

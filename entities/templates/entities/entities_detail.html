@@ -1,0 +1,11 @@
+{% extends 'general/welcome.html' %}
+
+{% block workspace %}
+
+{{ entity.name }}
+{{ entity.address }}
+{{ entity.organism }}
+
+<a href="{% url 'entities_list' %}">Listado de Entidades</a>
+
+{% endblock workspace %}

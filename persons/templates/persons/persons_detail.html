@@ -1,0 +1,11 @@
+{% extends 'general/welcome.html' %}
+
+{% block workspace %}
+
+{{ person.name }}
+{{ person.last_name }}
+{{ person.get_sex_display }}
+
+<a href="{% url 'persons_list' %}">Listado de Personas</a>
+
+{% endblock workspace %}

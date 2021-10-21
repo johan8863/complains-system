@@ -1,0 +1,84 @@
+{% extends 'general/welcome.html' %}
+{% load widget_tweaks %}
+
+{% block workspace %}
+
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <form method="POST"> {% csrf_token %}
+            <div class="mb-2">
+                <label for="name" class="form-label">Fecha: </label>
+                <input type="date" class="form-control" name="reception_date" id="">
+                {% if form.reception_date.errors %}
+                    {% for error in form.reception_date.errors %}
+                        <small class="form-text text-danger"> {{ error }} </small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="mb-2">
+                <label for="promoter" class="form-label">Promovente: </label>
+                {{ form.promoter|add_class:"form-control"|attr:"id:promoter" }}
+                {% if form.promoter.errors %}
+                    {% for error in form.promoter.errors %}
+                        <small class="form-text text-danger"> {{ error }} </small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="mb-2">
+                <label for="demmanded_entity" class="form-label">Entidad demandada: </label>
+                {{ form.demmanded_entity|add_class:"form-select"|attr:"id:demmanded_entity" }}
+                {% if form.demmanded_entity.errors %}
+                    {% for error in form.demmanded_entity.errors %}
+                        <small class="form-text text-danger"> {{ error }} </small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="mb-2">
+                <label for="demmanded_person" class="form-label">Persona demandada: </label>
+                {{ form.demmanded_person|add_class:"form-select"|attr:"id:demmanded_person" }}
+                {% if form.demmanded_person.errors %}
+                    {% for error in form.demmanded_person.errors %}
+                        <small class="form-text text-danger"> {{ error }} </small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="mb-2">
+                <label for="management_level" class="form-label">Nivel de Dirección: </label>
+                {{ form.management_level|add_class:"form-select"|attr:"id:management_level" }}
+                {% if form.management_level.errors %}
+                    {% for error in form.management_level.errors %}
+                        <small class="form-text text-danger"> {{ error }} </small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="mb-2">
+                <label for="belonging_entity" class="form-label">Entidad Perteneciente: </label>
+                {{ form.belonging_entity|add_class:"form-select"|attr:"id:belonging_entity" }}
+                {% if form.belonging_entity.errors %}
+                    {% for error in form.belonging_entity.errors %}
+                        <small class="form-text text-danger"> {{ error }} </small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="mb-2">
+                <label for="problem" class="form-label">Planteamiento: </label>
+                {{form.problem|add_class:"form-control"|attr:"id:problem" }}
+                {% if form.problem.errors %}
+                    {% for error in form.problem.errors %}
+                        <small class="form-text text-danger"> {{ error }} </small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit">Guardar</button>
+                <a class="btn btn-primary" href="{% url 'complains_list' %}">Cancelar</a>
+            </div>
+        </form>
+
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+
+
+{% endblock workspace %}

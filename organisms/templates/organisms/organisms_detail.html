@@ -1,0 +1,9 @@
+{% extends 'general/welcome.html' %}
+
+{% block workspace %}
+
+{{ organism.name }}
+
+<a href="{% url 'organisms_list' %}">Listado de Organismos</a>
+
+{% endblock workspace %}

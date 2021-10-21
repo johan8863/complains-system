@@ -1,0 +1,41 @@
+{% extends 'general/welcome.html' %}
+{% load widget_tweaks %}
+
+{% block nav %}
+{% endblock nav %}
+{% block login_out %}
+
+<form class="d-flex" method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="form-group mb-2">
+        {{ form.username|add_class:"form-control"|attr:"placeholder:Usuario" }}
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+        {{ form.password|add_class:"form-control"|attr:"placeholder:Clave" }}
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Entrar</button>
+    <input type="hidden" name="next" value="{{ next }}">
+</form>
+
+
+
+{% endblock login_out %}
+
+{% block workspace %}
+
+{% if form.errors %}
+<p class="text-danger">Datos incorrectos, intente de nuevo.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p class="text-danger">Su cuenta no tiene acceso a esta página, para continuar, 
+        continúe con una cuenta que posea los privilegios.</p>
+    {% else %}
+    <p class="text-danger">Necesita Autenticarse para comenzar</p>
+    {% endif %}
+{% endif %}
+
+
+
+{% endblock workspace %}
