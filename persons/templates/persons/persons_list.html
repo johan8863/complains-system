@@ -18,9 +18,9 @@
                 <td>{{ person.last_name }}</td>
                 <td>{{ person.get_sex_display }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{% url 'persons_detail' person.id %}">Detalles</a>
-                    <a class="btn btn-primary" href="{% url 'persons_update' person.id %}">Actualizar</a>
-                    <a class="btn btn-danger" href="{% url 'persons_delete' person.id %}">Eliminar</a>
+                    <a class="btn btn-primary" href="{% url 'persons_detail' person.id %}"><i class="bi bi-info-circle-fill"></i></a>
+                    <a class="btn btn-primary" href="{% url 'persons_update' person.id %}"><i class="bi bi-pencil-square"></i></a>
+                    <a class="btn btn-danger" href="{% url 'persons_delete' person.id %}"><i class="bi bi-trash"></i></a>
                 </td>
             </tr>
         {% empty %}
