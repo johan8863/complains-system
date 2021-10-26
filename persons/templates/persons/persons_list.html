@@ -24,7 +24,7 @@
                 </td>
             </tr>
         {% empty %}
-            <p>No existen personas en la base de datos <a href="{% url 'persons_create' %}">Agregar</a></p>
+            <p>No existen personas en la base de datos <a href="{% url 'persons_create' %}">Nueva <i class="bi bi-plus-circle"></i></a></p>
         {% endfor %}
     </tbody>
 </table>

@@ -20,7 +20,7 @@
                 </td>
             </tr>
         {% empty %}
-            <p>No existen organismos en la base de datos <a href="{% url 'organisms_create' %}">Agregar</a></p>
+            <p>No existen organismos en la base de datos <a href="{% url 'organisms_create' %}">Nueva <i class="bi bi-plus-circle"></i></a></p>
         {% endfor %}
     </tbody>
 </table>
