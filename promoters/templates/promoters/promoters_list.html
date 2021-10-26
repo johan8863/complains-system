@@ -18,9 +18,9 @@
                 <td>{{ promoter.person.last_name }}</td>
                 <td>{{ promoter.age }}</td>
                 <td>
-                   <a class="btn btn-primary" href="{% url 'promoters_detail' promoter.id %}">Detalles</a>
-                   <a class="btn btn-primary" href="{% url 'promoters_update' promoter.id %}">Actualizar</a>
-                   <a class="btn btn-danger" href="{% url 'promoters_delete' promoter.id %}">Eliminar</a>
+                   <a class="btn btn-primary" href="{% url 'promoters_detail' promoter.id %}"><i class="bi bi-info-circle-fill"></i></a>
+                   <a class="btn btn-primary" href="{% url 'promoters_update' promoter.id %}"><i class="bi bi-pencil-square"></i></a>
+                   <a class="btn btn-danger" href="{% url 'promoters_delete' promoter.id %}"><i class="bi bi-trash"></i></a>
                 </td>
             </tr>
         {% empty %}
