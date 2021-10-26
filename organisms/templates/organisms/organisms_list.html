@@ -14,9 +14,9 @@
             <tr>
                 <td>{{ organism.name }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{% url 'organisms_detail' organism.id %}">Detalles</a>
-                    <a class="btn btn-primary" href="{% url 'organisms_update' organism.id %}">Actualizar</a>
-                    <a class="btn btn-danger" href="{% url 'organisms_delete' organism.id %}">Eliminar</a>
+                    <a class="btn btn-primary" href="{% url 'organisms_detail' organism.id %}"><i class="bi bi-info-circle-fill"></i></a>
+                    <a class="btn btn-primary" href="{% url 'organisms_update' organism.id %}"><i class="bi bi-pencil-square"></i></a>
+                    <a class="btn btn-danger" href="{% url 'organisms_delete' organism.id %}"><i class="bi bi-trash"></i></a>
                 </td>
             </tr>
         {% empty %}
@@ -25,6 +25,6 @@
     </tbody>
 </table>
 
-<a class="btn btn-primary" href="{% url 'organisms_create' %}">Nuevo</a>
+<a class="btn btn-primary" href="{% url 'organisms_create' %}">Nuevo <i class="bi bi-plus-circle"></i></a>
 
 {% endblock workspace %}
