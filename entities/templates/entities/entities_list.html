@@ -13,18 +13,21 @@
     </thead>
     <tbody>
         {% for entity in entities %}
-            <tr>
-                <td>{{ entity.name }}</td>
-                <td>{{ entity.address }}</td>
-                <td>{{ entity.organism }}</td>
-                <td>
-                    <a class="btn btn-primary" href="{% url 'entities_detail' entity.id %}"><i class="bi bi-info-circle-fill"></i></a>
-                    <a class="btn btn-primary" href="{% url 'entities_update' entity.id %}"><i class="bi bi-pencil-square"></i></a>
-                    <a class="btn btn-danger" href="{% url 'entities_delete' entity.id %}"><i class="bi bi-trash"></i></a>
-                </td>
-            </tr>
+        <tr>
+            <td>{{ entity.name }}</td>
+            <td>{{ entity.address }}</td>
+            <td>{{ entity.organism }}</td>
+            <td>
+                <a class="btn btn-primary" href="{% url 'entities_detail' entity.id %}"><i
+                        class="bi bi-info-circle-fill"></i></a>
+                <a class="btn btn-primary" href="{% url 'entities_update' entity.id %}"><i
+                        class="bi bi-pencil-square"></i></a>
+                <a class="btn btn-danger" href="{% url 'entities_delete' entity.id %}"><i class="bi bi-trash"></i></a>
+            </td>
+        </tr>
         {% empty %}
-            <p>No existen entidades en la base de datos <a href="{% url 'entities_create' %}">Nueva <i class="bi bi-plus-circle"></i></a></p>
+        <p>No existen entidades en la base de datos <a href="{% url 'entities_create' %}">Nueva <i
+                    class="bi bi-plus-circle"></i></a></p>
         {% endfor %}
     </tbody>
 </table>
