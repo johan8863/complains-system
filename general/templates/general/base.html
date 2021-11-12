@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'general/bootstrap5/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'general/npm/node_modules/bootstrap-icons/font/bootstrap-icons.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+
+    {% block nav %}
+
+    {% block login_out %}
+    {% endblock login_out %}
+
+    {% endblock nav %}
+
+    {% block workspace %}
+
+    {% endblock workspace %}
+
+    <script src="{% static 'general/bootstrap5/js/bootstrap.min.js' %}"></script>
+
+</body>

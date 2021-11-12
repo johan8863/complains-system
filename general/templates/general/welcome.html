@@ -1,60 +1,42 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'general/base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'general/bootstrap5/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'general/npm/node_modules/bootstrap-icons/font/bootstrap-icons.css' %}">
-    <title>Document</title>
-</head>
+<div class="container-fluid mt-1 pb-2">
 
-<body>
-
-    <div class="container-fluid mt-1 pb-2">
-
-        <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light mb-2">
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        {% block nav %}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="gestion" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false" href="#">
-                                Gestión
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="gestion">
-                                <li><a class="dropdown-item" href="{% url 'persons_list' %}"><i class="bi bi-person"></i> Personas</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{% url 'promoters_list' %}"><i class="bi bi-person-circle"></i> Promoventes</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{% url 'organisms_list' %}"><i class="bi bi-diagram-3"></i> Organismos</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{% url 'entities_list' %}"><i class="bi bi-building"></i> Entidades</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{% url 'complains_list' %}"><i class="bi bi-file-text"></i> Quejas</a></li>
-                            </ul>
-                        </li>
-                        {% endblock nav %}
-                    </ul>
-                    {% block login_out %}
-                    <a class="me-2 btn btn-danger" href="{% url 'logout' %}"><i class="bi bi-box-arrow-left"></i> Salir</a>
-                    {% endblock login_out %}
-                </div>
+    {% block nav %}
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light mb-2">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="gestion" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" href="#">
+                            Gestión
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="gestion">
+                            <li><a class="dropdown-item" href="{% url 'persons_list' %}"><i class="bi bi-person"></i> Personas</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'promoters_list' %}"><i class="bi bi-person-circle"></i> Promoventes</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'organisms_list' %}"><i class="bi bi-diagram-3"></i> Organismos</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'entities_list' %}"><i class="bi bi-building"></i> Entidades</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'complains_list' %}"><i class="bi bi-file-text"></i> Quejas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                {% block login_out %}
+                <a class="me-2 btn btn-danger" href="{% url 'logout' %}"><i class="bi bi-box-arrow-left"></i> Salir</a>
+                {% endblock login_out %}
             </div>
-        </nav>
+        </div>
+    </nav>
+    {% endblock nav %}
 
 
-        {% block workspace %}
+    {% block workspace %}
 
-        {% endblock workspace %}
+    {% endblock workspace %}
 
 
-    </div>
-    <script src="{% static 'general/bootstrap5/js/bootstrap.min.js' %}"></script>
-
-</body>
-
-</html>
+</div>
