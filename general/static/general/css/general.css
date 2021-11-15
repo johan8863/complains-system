@@ -1,4 +1,10 @@
-.centered-form {
+.custom-centered {
     transform: translateX(50%);
     margin-top: 15%;
+}
+
+.login-icon {
+    font-size: 20rem;
+    color: cornflowerblue;
+    padding-bottom: 0%;
 }

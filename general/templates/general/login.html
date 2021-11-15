@@ -3,11 +3,13 @@
 
 {% block workspace %}
 <div class="container">
-
-    <div class="row my-5 bg-light border rounded">
-        <div class="col-md p-3 text-center border">
-            <div class="w-50 centered-form"">
-                <i class="bi bi-person-square"style="font-size: 5rem;"></i>
+    <div class="text-center mt-3">
+        <h3>Sitema de Gestión para la <span class="text-primary">Atención a la Población</span></h3>
+    </div>
+    <div class="row my-5">
+        <div class="col-md p-3 text-center border-end border-2 border-primary">
+            <div class="w-50 custom-centered">
+                <i class="bi bi-person-square" style="font-size: 5rem;"></i>
                 <form method="POST" action="{% url 'login' %}">
                     {% csrf_token %}
                     <div class="mb-3">
@@ -22,10 +24,8 @@
                 </form>
             </div>
         </div>
-        <div class="col-md">
-            <div class="m-auto">
-                <i class="bi bi-person-square" style="font-size: 20rem; color: cornflowerblue;"></i>
-            </div>
+        <div class="col-md text-center">
+            <i class="bi bi-person-check login-icon"></i>
         </div>
     </div>
 
