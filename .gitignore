@@ -3,3 +3,4 @@ db.tar.gz
 db.sqlite3
 shell.py
 */__pycache__/
+general/static/general/npm/node_modules
