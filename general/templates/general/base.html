@@ -8,14 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'general/bootstrap5/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'general/css/general.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'general/npm/node_modules/bootstrap-icons/font/bootstrap-icons.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'general/DataTables/datatables.css' %}">
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'general/npm/node_modules/bootstrap-icons/font/bootstrap-icons.css' %}">
     <title>Document</title>
 </head>
 
 <body>
 
     {% block nav %}
-    
+
     {% block pointer %}
     {% endblock pointer %}
 
@@ -29,8 +31,39 @@
 
         {% endblock workspace %}
     </div>
-    
+
 
     <script src="{% static 'general/bootstrap5/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'general/DataTables/datatables.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#datatable').DataTable({
+                language: {
+                    "decimal": "",
+                    "emptyTable": "No hay información en la tabla",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ entrada(s)",
+                    "infoEmpty": "Mostrando 0 a 0 de 0 entradas",
+                    "infoFiltered": "(filtrada(s) de _MAX_ total de entradas)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Mostrar _MENU_ entradas",
+                    "loadingRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "zeroRecords": "No hay coincidencias",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    },
+                    "aria": {
+                        "sortAscending": ": acticar para ordenar la columna ascendentemente",
+                        "sortDescending": ": acticar para ordenar la columna descendentemente"
+                    }
+                }
+            });
+        })
+    </script>
 
 </body>
