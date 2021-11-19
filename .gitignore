@@ -2,10 +2,4 @@
 db.tar.gz
 db.sqlite3
 shell.py
-apoblacion/__pycache__/
-complains/__pycache__/
-entities/__pycache__/
-general/__pycache__/
-organisms/__pycache__/
-persons/__pycache__/
-promoters/__pycache__/
+*/__pycache__/
