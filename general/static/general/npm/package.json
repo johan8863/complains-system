@@ -1,0 +1,14 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "packages"
+  ],
+  "author": "Johan Travieso Castro",
+  "license": "ISC"
+}
