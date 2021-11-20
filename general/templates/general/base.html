@@ -37,6 +37,9 @@
     <script>
         $(document).ready(function () {
             $('#datatable').DataTable({
+                // ordering: false,
+                scrollY: '350px',
+                lengthMenu: [[10, 15, 20, 25, -1], [10, 15, 20, 25, "Todas"]],
                 language: {
                     "decimal": "",
                     "emptyTable": "No hay información en la tabla",
