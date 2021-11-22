@@ -9,28 +9,30 @@
     <link rel="stylesheet" type="text/css" href="{% static 'general/bootstrap5/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'general/css/general.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'general/DataTables/datatables.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'general/npm/node_modules/bootstrap-icons/font/bootstrap-icons.css' %}">
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'general/npm/node_modules/bootstrap-icons/font/bootstrap-icons.css' %}">
     <title>Atención a la Población</title>
 </head>
 
 <body>
 
-    {% block nav %}
+    <div class="container-fluid">
 
-    {% block pointer %}
-    {% endblock pointer %}
+        {% block nav %}
 
-    {% block login_out %}
-    {% endblock login_out %}
+        {% block pointer %}
+        {% endblock pointer %}
 
-    {% endblock nav %}
+        {% block login_out %}
+        {% endblock login_out %}
 
-    <div class="container">
+        {% endblock nav %}
+
         {% block workspace %}
 
         {% endblock workspace %}
-    </div>
 
+    </div>
 
     <script src="{% static 'general/bootstrap5/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'general/DataTables/datatables.js' %}"></script>

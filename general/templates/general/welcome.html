@@ -1,44 +1,67 @@
 {% extends 'general/base.html' %}
 
 
-    {% block nav %}
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg mb-2">
-        <div class="container">
+{% block nav %}
+<nav class="navbar navbar-light navbar-expand-lg mb-2" style="background-color: #e3f2fd;">
 
-            {% block pointer %}
-            <span class="text-secondary">Bienvenido</span>
-            {% endblock pointer %}
+    <div class="collapse navbar-collapse">
 
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="gestion" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false" href="#">
-                            Gestión
+        {% block pointer %}
+        <spam class="text-secondary px-2">Bienvenido</spam>
+        {% endblock pointer %}
+
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="gestion" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">Gestión</a>
+                <ul class="dropdown-menu" style="background-color: #e3f2fd;">
+                    <li>
+                        <a class="dropdown-item" href="{% url 'persons_list' %}">
+                            <i class="bi bi-person"></i> Personas
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="gestion">
-                            <li><a class="dropdown-item" href="{% url 'persons_list' %}"><i class="bi bi-person"></i> Personas</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{% url 'promoters_list' %}"><i class="bi bi-person-circle"></i> Promoventes</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{% url 'organisms_list' %}"><i class="bi bi-diagram-3"></i> Organismos</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{% url 'entities_list' %}"><i class="bi bi-building"></i> Entidades</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{% url 'complains_list' %}"><i class="bi bi-file-text"></i> Quejas</a></li>
-                        </ul>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{% url 'promoters_list' %}">
+                            <i class="bi bi-person-circle"></i> Promoventes
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{% url 'organisms_list' %}">
+                            <i class="bi bi-diagram-3"></i> Organismos
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{% url 'entities_list' %}">
+                            <i class="bi bi-building"></i> Entidades
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{% url 'complains_list' %}">
+                            <i class="bi bi-file-text"></i> Quejas
+                        </a>
                     </li>
                 </ul>
-                {% block login_out %}
-                <a class="me-2 btn btn-danger" href="{% url 'logout' %}"><i class="bi bi-box-arrow-left"></i> Salir</a>
-                {% endblock login_out %}
-            </div>
-        </div>
-    </nav>
-    {% endblock nav %}
+            </li>
+        </ul>
+        {% block login_out %}
+        <a class="me-2 btn btn-sm btn-danger" href="{% url 'logout' %}"><i class="bi bi-box-arrow-left"></i> Salir</a>
+        {% endblock login_out %}
+    </div>
+</nav>
+{% endblock nav %}
 
 
-    {% block workspace %}
+{% block workspace %}
 
-    {% endblock workspace %}
-
+{% endblock workspace %}

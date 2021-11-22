@@ -1,44 +1,59 @@
 {% extends 'general/welcome.html' %}
 
 {% block pointer %}
-<span class="text-secondary">Gesión | Personas</span>
+<span class="text-secondary px-2">Gesión | Personas</span>
 {% endblock pointer %}
 
 
 {% block workspace %}
 
-<table class="table table-light table-striped table-hover table-sm" id="datatable">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Sexo</th>
-            <!-- <th></th> -->
-        </tr>
-    </thead>
-    <tbody>
-        {% for person in persons %}
-        <tr>
-            
-                <td><a href="{% url 'persons_detail' person.id %}">{{ person.name }}</a></td>
-                <td>{{ person.last_name }}</td>
-                <td>{{ person.get_sex_display }}</td>
-            
-            <!-- <td>
+<div class="row gx-2">
+    <div class="col-md-2">
+        <div class="border rounded p-2 bg-light">
+            <p class="h6 text-center">Personas</p>
+            <div class="list-group mb-2">
+                <a href="{% url 'persons_create' %}" class="list-group-item list-group-item-action list-group-item-primary">Nueva <i class="bi bi-plus-circle"></i></a>
+            </div>
+            <p class="h6 text-center">Gestión</p>
+            <div class="list-group">
+                <!-- <a class="list-group-item list-group-item-action list-group-item-primary" href="{% url 'persons_list' %}"><i class="bi bi-person"></i> Personas</a> -->
+                <a class="list-group-item list-group-item-action list-group-item-primary" href="{% url 'promoters_list' %}"><i class="bi bi-person-circle"></i> Promoventes</a>
+                <a class="list-group-item list-group-item-action list-group-item-primary" href="{% url 'organisms_list' %}"><i class="bi bi-diagram-3"></i> Organismos</a>
+                <a class="list-group-item list-group-item-action list-group-item-primary" href="{% url 'entities_list' %}"><i class="bi bi-building"></i> Entidades</a>
+                <a class="list-group-item list-group-item-action list-group-item-primary" href="{% url 'complains_list' %}"><i class="bi bi-file-text"></i> Quejas</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md p-2 bg-light border rounded">
+        <table class="table table-light table-striped table-hover table-sm" id="datatable">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Sexo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for person in persons %}
+                <tr>
+
+                    <td><a href="{% url 'persons_detail' person.id %}">{{ person.name }}</a></td>
+                    <td>{{ person.last_name }}</td>
+                    <td>{{ person.get_sex_display }}</td>
+
+                    <!-- <td>
                 <a class="btn btn-primary" href="{% url 'persons_detail' person.id %}"><i
                         class="bi bi-info-circle-fill"></i></a>
                 <a class="btn btn-primary" href="{% url 'persons_update' person.id %}"><i
                         class="bi bi-pencil-square"></i></a>
                 <a class="btn btn-danger" href="{% url 'persons_delete' person.id %}"><i class="bi bi-trash"></i></a>
             </td> -->
-        </tr>
-        {% empty %}
-        <p>No existen personas en la base de datos <a href="{% url 'persons_create' %}">Nueva <i
-                    class="bi bi-plus-circle"></i></a></p>
-        {% endfor %}
-    </tbody>
-</table>
-
-<a class="btn btn-primary" href="{% url 'persons_create' %}">Nueva <i class="bi bi-plus-circle"></i></a>
-
-{% endblock workspace %}
+                </tr>
+                {% empty %}
+                <p>No existen personas en la base de datos <a href="{% url 'persons_create' %}">Nueva <i
+                            class="bi bi-plus-circle"></i></a></p>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </dixv2 {% endblock workspace %}

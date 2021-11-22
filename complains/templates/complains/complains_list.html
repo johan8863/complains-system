@@ -1,40 +1,56 @@
 {% extends 'general/welcome.html' %}
 
 {% block pointer %}
-<span class="text-secondary">Gesión | Quejas</span>
+<span class="text-secondary px-2">Gesión | Quejas</span>
 {% endblock pointer %}
 
 {% block workspace %}
 
-<table class="table table-light table-striped table-hover table-sm" id="datatable">
-    <thead>
-        <tr>
-            <th>Fecha</th>
-            <th>Promovente</th>
-            <th>Entidad Demandada</th>
-            <th>Persona Demandada</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for complain in complains %}
-            <tr>
-                <td>{{ complain.reception_date }}</td>
-                <td>{{ complain.promoter }}</td>
-                <td>{{ complain.demmanded_entity }}</td>
-                <td>{{ complain.demmanded_person }}</td>
-                <td>
-                    <a class="btn btn-primary" href="{% url 'complains_detail' complain.id %}"><i class="bi bi-info-circle-fill"></i></a>
-                    <a class="btn btn-primary" href="{% url 'complains_update' complain.id %}"><i class="bi bi-pencil-square"></i></a>
-                    <a class="btn btn-danger" href="{% url 'complains_delete' complain.id %}"><i class="bi bi-trash"></i></a>
-                </td>
-            </tr>
-        {% empty %}
-            <p>No existen quejas en la base de datos <a href="{% url 'complains_create' %}">Nueva <i class="bi bi-plus-circle"></i></a></p>
-        {% endfor %}
-    </tbody>
-</table>
-
-<a class="btn btn-primary" href="{% url 'complains_create' %}">Nueva <i class="bi bi-plus-circle"></i></a>
+<div class="row gx-2">
+    <div class="col-md-2">
+        <div class="border rounded p-2 bg-light">
+            <p class="h6 text-center">Quejas</p>
+            <div class="list-group mb-2">
+                <a href="{% url 'complains_create' %}" class="list-group-item list-group-item-action list-group-item-primary">Nueva <i class="bi bi-plus-circle"></i></a>
+            </div>
+            <p class="h6 text-center">Gestión</p>
+            <div class="list-group">
+                <a class="list-group-item list-group-item-action list-group-item-primary" href="{% url 'persons_list' %}"><i class="bi bi-person"></i> Personas</a>
+                <a class="list-group-item list-group-item-action list-group-item-primary" href="{% url 'promoters_list' %}"><i class="bi bi-person-circle"></i> Promoventes</a>
+                <a class="list-group-item list-group-item-action list-group-item-primary" href="{% url 'organisms_list' %}"><i class="bi bi-diagram-3"></i> Organismos</a>
+                <a class="list-group-item list-group-item-action list-group-item-primary" href="{% url 'entities_list' %}"><i class="bi bi-building"></i> Entidades</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md p-2 bg-light border rounded">
+        <table class="table table-light table-striped table-hover table-sm" id="datatable">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Promovente</th>
+                    <th>Entidad Demandada</th>
+                    <th>Persona Demandada</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for complain in complains %}
+                    <tr>
+                        <td><a href="{% url 'complains_detail' complain.id %}">{{ complain.reception_date }}</a></td>
+                        <td>{{ complain.promoter }}</td>
+                        <td>{{ complain.demmanded_entity }}</td>
+                        <td>{{ complain.demmanded_person }}</td>
+                        <!-- <td>
+                            <a class="btn btn-primary" href="{% url 'complains_detail' complain.id %}"><i class="bi bi-info-circle-fill"></i></a>
+                            <a class="btn btn-primary" href="{% url 'complains_update' complain.id %}"><i class="bi bi-pencil-square"></i></a>
+                            <a class="btn btn-danger" href="{% url 'complains_delete' complain.id %}"><i class="bi bi-trash"></i></a>
+                        </td> -->
+                    </tr>
+                {% empty %}
+                    <p>No existen quejas en la base de datos <a href="{% url 'complains_create' %}">Nueva <i class="bi bi-plus-circle"></i></a></p>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 
 {% endblock workspace %}
