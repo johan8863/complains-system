@@ -4,8 +4,8 @@
 
 <form method="POST"> {% csrf_token %}
     <p>¿Está seguro de eliminar la persona seleccionada?</p>
-    <input class="btn btn-primary" type="submit" value="Eliminar">
-    <a class="btn btn-danger" href="{% url 'persons_list' %}">Cancelar</a>
+    <input class="btn btn-danger" type="submit" value="Eliminar">
+    <a class="btn btn-primary" href="{% url 'persons_detail' person.id %}">Cancelar</a>
 </form>
 
 {% endblock workspace %}

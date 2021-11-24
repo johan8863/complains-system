@@ -32,6 +32,6 @@ class PersonUpdate(LoginRequiredMixin, generic.UpdateView):
 class PersonDelete(LoginRequiredMixin, generic.DeleteView):
     model = Person
     template_name = 'persons/persons_confirm_delete.html'
-
+    success_url = reverse_lazy('persons_list')
 
 # End Person's CRUD #
