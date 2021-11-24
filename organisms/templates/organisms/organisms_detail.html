@@ -67,4 +67,26 @@
     </div>
 </div>
 
+ <!-- Modal -->
+ <div class="modal fade" id="confirm-delete" tabindex="-1" aria-labelledby="confirmDelete" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDelete">Eliminar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="lead">Está seguro que desea eliminar el Organismo </p>
+                <p class="lead">{{ organism.name }}</p>
+            </div>
+            <div class="modal-footer text-center">
+                <form action="{% url 'organisms_delete' organism.id %}" method="post"> {% csrf_token %}
+                    <input class="btn btn-danger" type="submit" value="Eliminar">
+                    <a class="btn btn-primary" data-bs-dismiss="modal">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock workspace %}
