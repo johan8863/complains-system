@@ -2,8 +2,69 @@
 
 {% block workspace %}
 
-{{ organism.name }}
-
-<a href="{% url 'organisms_list' %}">Listado de Organismos</a>
+<div class="row gx-2">
+    <div class="col-md-2">
+        <div class="border rounded p-2 bg-light">
+            <p class="h6 text-center">Organismos</p>
+            <div class="list-group mb-2">
+                <a href="{% url 'organisms_create' %}"
+                   class="list-group-item list-group-item-action list-group-item-primary">
+                    Nuevo <i class="bi bi-plus-circle"></i>
+                </a>
+                <a href="{% url 'organisms_update' organism.id %}"
+                    class="list-group-item list-group-item-action list-group-item-primary">
+                    Editar <i class="bi bi-pencil-square"></i>
+                </a>
+                <a href="#"
+                   class="list-group-item list-group-item-action list-group-item-primary"
+                   data-bs-toggle="modal"
+                   data-bs-target="#confirm-delete">
+                    Eliminar <i class="bi bi-trash"></i>
+                </a>
+            </div>
+            <p class="h6 text-center">Gestión</p>
+            <div class="list-group">
+                <a class="list-group-item list-group-item-action list-group-item-primary"
+                   href="{% url 'persons_list' %}">
+                    <i class="bi bi-person"></i> Personas
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-primary"
+                   href="{% url 'promoters_list' %}">
+                    <i class="bi bi-person-circle"></i> Promoventes
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-primary"
+                   href="{% url 'organisms_list' %}">
+                    <i class="bi bi-diagram-3"></i> Organismos
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-primary"
+                   href="{% url 'entities_list' %}">
+                    <i class="bi bi-building"></i> Entidades
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-primary"
+                   href="{% url 'complains_list' %}">
+                    <i class="bi bi-file-text"></i> Quejas
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md bg-light border rounded">
+        <div class="card mt-1">
+            <h1 class="card-header">{{ organism.name }}</h1>
+            <div class="card-body">
+                <h5 class="card-title">Información:</h5>
+                <p class="card-text">Nombre: {{ organism.name }}</p>
+                <a href="{% url 'organisms_update' organism.id %}" class="btn btn-primary">
+                    Editar <i class="bi bi-pencil-square"></i>
+                </a>
+                <a href="#"
+                   class="btn btn-danger"
+                   data-bs-toggle="modal"
+                   data-bs-target="#confirm-delete">
+                    Eliminar <i class="bi bi-trash"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock workspace %}
