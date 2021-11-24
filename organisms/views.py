@@ -32,6 +32,7 @@ class OrganismUpdate(LoginRequiredMixin, generic.UpdateView):
 class OrganismDelete(LoginRequiredMixin, generic.DeleteView):
     model = Organism
     template_name = 'organisms/organisms_confirm_delete.html'
+    success_url = reverse_lazy('organisms_list')
 
 
 
