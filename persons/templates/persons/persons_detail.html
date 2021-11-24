@@ -8,38 +8,40 @@
             <p class="h6 text-center">Personas</p>
             <div class="list-group mb-2">
                 <a href="{% url 'persons_create' %}"
-                    class="list-group-item list-group-item-action list-group-item-primary">
+                   class="list-group-item list-group-item-action list-group-item-primary">
                     Nueva <i class="bi bi-plus-circle"></i>
                 </a>
                 <a href="{% url 'persons_update' person.id %}"
                     class="list-group-item list-group-item-action list-group-item-primary">
                     Editar <i class="bi bi-pencil-square"></i>
                 </a>
-                <a href="{% url 'persons_delete' person.id %}"
-                    class="list-group-item list-group-item-action list-group-item-primary">
+                <a href="#"
+                   class="list-group-item list-group-item-action list-group-item-primary"
+                   data-bs-toggle="modal"
+                   data-bs-target="#confirm-delete">
                     Eliminar <i class="bi bi-trash"></i>
                 </a>
             </div>
             <p class="h6 text-center">Gestión</p>
             <div class="list-group">
                 <a class="list-group-item list-group-item-action list-group-item-primary"
-                    href="{% url 'persons_list' %}">
+                   href="{% url 'persons_list' %}">
                     <i class="bi bi-person"></i> Personas
                 </a>
                 <a class="list-group-item list-group-item-action list-group-item-primary"
-                    href="{% url 'promoters_list' %}">
+                   href="{% url 'promoters_list' %}">
                     <i class="bi bi-person-circle"></i> Promoventes
                 </a>
                 <a class="list-group-item list-group-item-action list-group-item-primary"
-                    href="{% url 'organisms_list' %}">
+                   href="{% url 'organisms_list' %}">
                     <i class="bi bi-diagram-3"></i> Organismos
                 </a>
                 <a class="list-group-item list-group-item-action list-group-item-primary"
-                    href="{% url 'entities_list' %}">
+                   href="{% url 'entities_list' %}">
                     <i class="bi bi-building"></i> Entidades
                 </a>
                 <a class="list-group-item list-group-item-action list-group-item-primary"
-                    href="{% url 'complains_list' %}">
+                   href="{% url 'complains_list' %}">
                     <i class="bi bi-file-text"></i> Quejas
                 </a>
             </div>
@@ -56,9 +58,34 @@
                 <a href="{% url 'persons_update' person.id %}" class="btn btn-primary">
                     Editar <i class="bi bi-pencil-square"></i>
                 </a>
-                <a href="{% url 'persons_delete' person.id %}" class="btn btn-danger">
+                <a href="#"
+                   class="btn btn-danger"
+                   data-bs-toggle="modal"
+                   data-bs-target="#confirm-delete">
                     Eliminar <i class="bi bi-trash"></i>
                 </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- Modal -->
+ <div class="modal fade" id="confirm-delete" tabindex="-1" aria-labelledby="confirmDelete" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="enrollLabel">Eliminar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="lead">Está seguro que desea eliminar la persona </p>
+                <p class="lead">{{ person.name }} - {{ person.last_name }}</p>
+            </div>
+            <div class="modal-footer text-center">
+                <form action="{% url 'persons_delete' person.id %}" method="post"> {% csrf_token %}
+                    <input class="btn btn-danger" type="submit" value="Eliminar">
+                    <a class="btn btn-primary" data-bs-dismiss="modal">Cancelar</a>
+                </form>
             </div>
         </div>
     </div>
