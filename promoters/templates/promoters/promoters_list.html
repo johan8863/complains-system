@@ -11,14 +11,29 @@
         <div class="border rounded p-2 bg-light">
             <p class="h6 text-center">Promoventes</p>
             <div class="list-group mb-2">
-                <a href="{% url 'promoters_create' %}" class="list-group-item list-group-item-action list-group-item-primary">Nuevo <i class="bi bi-plus-circle"></i></a>
+                <a href="{% url 'promoters_create' %}"
+                    class="list-group-item list-group-item-action list-group-item-primary">
+                    Nuevo <i class="bi bi-plus-circle"></i>
+                </a>
             </div>
             <p class="h6 text-center">Gestión</p>
             <div class="list-group">
-                <a class="list-group-item list-group-item-action list-group-item-primary" href="{% url 'persons_list' %}"><i class="bi bi-person"></i> Personas</a>
-                <a class="list-group-item list-group-item-action list-group-item-primary" href="{% url 'organisms_list' %}"><i class="bi bi-diagram-3"></i> Organismos</a>
-                <a class="list-group-item list-group-item-action list-group-item-primary" href="{% url 'entities_list' %}"><i class="bi bi-building"></i> Entidades</a>
-                <a class="list-group-item list-group-item-action list-group-item-primary" href="{% url 'complains_list' %}"><i class="bi bi-file-text"></i> Quejas</a>
+                <a class="list-group-item list-group-item-action list-group-item-primary"
+                    href="{% url 'persons_list' %}">
+                    <i class="bi bi-person"></i> Personas
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-primary"
+                    href="{% url 'organisms_list' %}">
+                    <i class="bi bi-diagram-3"></i> Organismos
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-primary"
+                    href="{% url 'entities_list' %}">
+                    <i class="bi bi-building"></i> Entidades
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-primary"
+                    href="{% url 'complains_list' %}">
+                    <i class="bi bi-file-text"></i> Quejas
+                </a>
             </div>
         </div>
     </div>
@@ -33,18 +48,21 @@
             </thead>
             <tbody>
                 {% for promoter in promoters %}
-                    <tr>
-                        <td><a href="{% url 'promoters_detail' promoter.id %}">{{ promoter.person.name }}</a></td>
-                        <td>{{ promoter.person.last_name }}</td>
-                        <td>{{ promoter.age }}</td>
-                        <!-- <td>
+                <tr>
+                    <td>
+                        <a href="{% url 'promoters_detail' promoter.id %}">{{ promoter.person.name }}</a>
+                    </td>
+                    <td>{{ promoter.person.last_name }}</td>
+                    <td>{{ promoter.age }}</td>
+                    <!-- <td>
                             <a class="btn btn-primary" href="{% url 'promoters_detail' promoter.id %}"><i class="bi bi-info-circle-fill"></i></a>
                             <a class="btn btn-primary" href="{% url 'promoters_update' promoter.id %}"><i class="bi bi-pencil-square"></i></a>
                             <a class="btn btn-danger" href="{% url 'promoters_delete' promoter.id %}"><i class="bi bi-trash"></i></a>
                         </td> -->
-                    </tr>
+                </tr>
                 {% empty %}
-                    <p>No existen promoventes en la base de datos <a href="{% url 'promoters_create' %}">Nueva <i class="bi bi-plus-circle"></i></a></p>
+                <p>No existen promoventes en la base de datos <a href="{% url 'promoters_create' %}">Nueva <i
+                            class="bi bi-plus-circle"></i></a></p>
                 {% endfor %}
             </tbody>
         </table>
