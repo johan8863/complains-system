@@ -32,6 +32,7 @@ class EntityUpdate(LoginRequiredMixin, generic.UpdateView):
 class EntityDelete(LoginRequiredMixin, generic.DeleteView):
     model = Entity
     template_name = 'entities/entities_confirm_delete.html'
+    success_url = reverse_lazy('entities_list')
 
 
 
