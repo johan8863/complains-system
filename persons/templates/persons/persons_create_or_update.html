@@ -39,8 +39,8 @@
             <button class="btn btn-primary" type="submit">Guardar</button>
             {% if person.id %}
             <a class="btn btn-primary" href="{% url 'persons_detail' person.id %}">Cancelar</a>
-            {% else %}
-            <a class="btn btn-primary" href="{% url 'persons_detail'}">Cancelar</a>
+                {% else %}
+                <a class="btn btn-primary" href="{% url 'persons_detail'}">Cancelar</a>
             {% endif %}
         </div>
     </form>

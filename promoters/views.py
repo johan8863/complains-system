@@ -32,6 +32,7 @@ class PromoterUpdate(LoginRequiredMixin, generic.UpdateView):
 class PromoterDelete(LoginRequiredMixin, generic.DeleteView):
     model = Promoter
     template_name = 'promoters/promoters_confirm_delete.html'
+    success_url = reverse_lazy('promoters_list')
 
 
 

@@ -11,6 +11,17 @@
                     class="list-group-item list-group-item-action list-group-item-primary">
                     Nuevo <i class="bi bi-plus-circle"></i>
                 </a>
+                <a href="{% url 'promoters_update' promoter.id %}"
+                    class="list-group-item list-group-item-action list-group-item-primary">
+                    Editar <i class="bi bi-pencil-square"></i>
+                </a>
+                <a href="#"
+                   class="list-group-item list-group-item-action list-group-item-primary"
+                   class="btn btn-danger"
+                   data-bs-toggle="modal"
+                   data-bs-target="#confirm-delete">
+                   Eliminar <i class="bi bi-trash"></i>
+                </a>
             </div>
             <p class="h6 text-center">Gestión</p>
             <div class="list-group">
@@ -58,8 +69,26 @@
     </div>
 </div>
 
-
-
-<a href="{% url 'promoters_list' %}">Listado de Promoventes</a>
+ <!-- Modal -->
+ <div class="modal fade" id="confirm-delete" tabindex="-1" aria-labelledby="confirmDelete" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="enrollLabel">Eliminar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="lead">Está seguro que desea eliminar la persona </p>
+                <p class="lead">{{ promoter.person.name }} - {{ promoter.person.last_name }}</p>
+            </div>
+            <div class="modal-footer text-center">
+                <form action="{% url 'promoters_delete' promoter.id %}" method="post"> {% csrf_token %}
+                    <input class="btn btn-danger" type="submit" value="Eliminar">
+                    <a class="btn btn-primary" data-bs-dismiss="modal">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock workspace %}
