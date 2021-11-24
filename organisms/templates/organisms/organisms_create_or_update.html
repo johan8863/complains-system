@@ -18,7 +18,11 @@
             </div>
             <div>
                 <button class="btn btn-primary" type="submit">Guardar</button>
-                <a class="btn btn-primary" href="{% url 'organisms_list' %}">Cancelar</a>
+                {% if organism.id %}
+                <a class="btn btn-primary" href="{% url 'organisms_detail' organism.id %}">Cancelar</a>
+                    {% else %}
+                    <a class="btn btn-primary" href="{% url 'organisms_list' %}">Cancelar</a>
+                {% endif %}
             </div>
         </form>
     </div>
