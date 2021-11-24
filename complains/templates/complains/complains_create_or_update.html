@@ -72,7 +72,11 @@
             </div>
             <div>
                 <button class="btn btn-primary" type="submit">Guardar</button>
-                <a class="btn btn-primary" href="{% url 'complains_list' %}">Cancelar</a>
+                {% if complain.id %}
+                <a class="btn btn-primary" href="{% url 'complains_detail' complain.id %}">Cancelar</a>
+                    {% else %}
+                    <a class="btn btn-primary" href="{% url 'complains_list' %}">Cancelar</a>
+                {% endif %}
             </div>
         </form>
 

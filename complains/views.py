@@ -32,6 +32,7 @@ class ComplainUpdate(LoginRequiredMixin, generic.UpdateView):
 class ComplainDelete(LoginRequiredMixin, generic.DeleteView):
     model = Complain
     template_name = 'complains/complains_confirm_delete.html'
+    success_url = reverse_lazy('complains_list')
 
 
 

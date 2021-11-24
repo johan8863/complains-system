@@ -82,8 +82,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p class="lead">Está seguro que desea eliminar la persona </p>
-                <p class="lead">{{ person.name }} - {{ person.last_name }}</p>
+                <p class="lead">Está seguro que desea eliminar esta queja? </p>
             </div>
             <div class="modal-footer text-center">
                 <form action="{% url 'complains_delete' complain.id %}" method="post"> {% csrf_token %}
