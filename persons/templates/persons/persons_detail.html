@@ -75,17 +75,17 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="enrollLabel">Eliminar</h5>
+                <h5 class="modal-title" id="confirmDelete">Eliminar</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <p class="lead">Está seguro que desea eliminar la persona </p>
                 <p class="lead">{{ person.name }} - {{ person.last_name }}</p>
             </div>
-            <div class="modal-footer text-center">
+            <div class="modal-footer">
                 <form action="{% url 'persons_delete' person.id %}" method="post"> {% csrf_token %}
-                    <input class="btn btn-danger" type="submit" value="Eliminar">
-                    <a class="btn btn-primary" data-bs-dismiss="modal">Cancelar</a>
+                    <input class="btn btn-danger btn-sm" type="submit" value="Eliminar">
+                    <a class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</a>
                 </form>
             </div>
         </div>

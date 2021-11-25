@@ -51,15 +51,19 @@
         <div class="card mt-1">
             <h1 class="card-header">{{ entity.name }} <small>{{ entity.last_name }}</small></h1>
             <div class="card-body">
-                <h5 class="card-title">Información:</h5>
-                <p class="card-text">Nombre: {{ entity.name }}</p>
-                <p class="card-text">Dirección: {{ entity.address }}</p>
-                <p class="card-text">Organismo: {{ entity.organism }}</p>
-                <a href="{% url 'entities_update' entity.id %}" class="btn btn-primary">
+                <h5 class="card-title">Nombre:</h5>
+                <p class="card-text">{{ entity.name }}</p>
+
+                <h5 class="card-title">Dirección:</h5>
+                <p class="card-text">{{ entity.address }}</p>
+
+                <h5 class="card-title">Organismo:</h5>
+                <p class="card-text">{{ entity.organism }}</p>
+                <a href="{% url 'entities_update' entity.id %}" class="btn btn-primary btn-sm">
                     Editar <i class="bi bi-pencil-square"></i>
                 </a>
                 <a href="#"
-                   class="btn btn-danger"
+                   class="btn btn-danger btn-sm"
                    data-bs-toggle="modal"
                    data-bs-target="#confirm-delete">
                     Eliminar <i class="bi bi-trash"></i>
@@ -76,17 +80,17 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="enrollLabel">Eliminar</h5>
+                <h5 class="modal-title" id="confirmDelete">Eliminar</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p class="lead">Está seguro que desea eliminar la persona </p>
-                <p class="lead">{{ person.name }} - {{ person.last_name }}</p>
+                <p class="lead">Está seguro que desea eliminar la entidad </p>
+                <p class="lead">{{ entity.name }}</p>
             </div>
-            <div class="modal-footer text-center">
+            <div class="modal-footer">
                 <form action="{% url 'entities_delete' entity.id %}" method="post"> {% csrf_token %}
-                    <input class="btn btn-danger" type="submit" value="Eliminar">
-                    <a class="btn btn-primary" data-bs-dismiss="modal">Cancelar</a>
+                    <input class="btn btn-danger btn-sm" type="submit" value="Eliminar">
+                    <a class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</a>
                 </form>
             </div>
         </div>

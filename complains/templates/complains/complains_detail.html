@@ -51,19 +51,31 @@
         <div class="card mt-1">
             <h1 class="card-header">Queja</h1>
             <div class="card-body">
-                <h5 class="card-title">Información:</h5>
-                <p class="card-text">Fecha: {{ complain.reception_date }}</p>
-                <p class="card-text">Promovente: {{ complain.promoter }}</p>
-                <p class="card-text">Entidad demandada: {{ complain.demmanded_entity }}</p>
-                <p class="card-text">Persona demandada: {{ complain.demmanded_person }}</p>
-                <p class="card-text">Nivel de administración: {{ complain.management_level }}</p>
-                <p class="card-text">Entidad perteneciente: {{ complain.belonging_entity }}</p>
-                <p class="card-text">Planteamiento: {{ complain.problem }}</p>
-                <a href="{% url 'complains_update' complain.id %}" class="btn btn-primary">
+                <h5 class="card-title">Fecha:</h5>
+                <p class="card-text">{{ complain.reception_date }}</p>
+
+                <h5 class="card-title">Promovente:</h5>
+                <p class="card-text">{{ complain.promoter }}</p>
+
+                <h5 class="card-title">Entidad demandada:</h5>
+                <p class="card-text">{{ complain.demmanded_entity }}</p>
+
+                <h5 class="card-title">Persona demandada:</h5>
+                <p class="card-text">{{ complain.demmanded_person }}</p>
+
+                <h5 class="card-title">Nivel de administración:</h5>
+                <p class="card-text">{{ complain.management_level }}</p>
+
+                <h5 class="card-title">Entidad perteneciente:</h5>
+                <p class="card-text">{{ complain.belonging_entity }}</p>
+
+                <h5 class="card-title">Planteamiento:</h5>
+                <p class="card-text">{{ complain.problem }}</p>
+                <a href="{% url 'complains_update' complain.id %}" class="btn btn-primary btn-sm">
                     Editar <i class="bi bi-pencil-square"></i>
                 </a>
                 <a href="#"
-                   class="btn btn-danger"
+                   class="btn btn-danger btn-sm"
                    data-bs-toggle="modal"
                    data-bs-target="#confirm-delete">
                     Eliminar <i class="bi bi-trash"></i>
@@ -78,16 +90,16 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="enrollLabel">Eliminar</h5>
+                <h5 class="modal-title" id="confirmDelete">Eliminar</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <p class="lead">Está seguro que desea eliminar esta queja? </p>
             </div>
-            <div class="modal-footer text-center">
+            <div class="modal-footer">
                 <form action="{% url 'complains_delete' complain.id %}" method="post"> {% csrf_token %}
-                    <input class="btn btn-danger" type="submit" value="Eliminar">
-                    <a class="btn btn-primary" data-bs-dismiss="modal">Cancelar</a>
+                    <input class="btn btn-danger btn-sm" type="submit" value="Eliminar">
+                    <a class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</a>
                 </form>
             </div>
         </div>

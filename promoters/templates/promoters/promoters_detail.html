@@ -48,18 +48,28 @@
         <div class="card mt-1">
             <h1 class="card-header">{{ promoter.person.name }} <small>{{ promoter.person.last_name }}</small></h1>
             <div class="card-body">
-                <h5 class="card-title">Información:</h5>
-                <p class="card-text">Nombre: {{ promoter.person.name }}</p>
-                <p class="card-text">Nombre: {{ promoter.age }}</p>
-                <p class="card-text">Nombre: {{ promoter.get_school_level_display }}</p>
-                <p class="card-text">Ocupación: {{ promoter.occupation }}</p>
-                <p class="card-text">Dirección: {{ promoter.address }}</p>
-                <p class="card-text">Lugar o teléfono: {{ promoter.phone_or_place }}</p>
-                <a href="{% url 'promoters_update' promoter.id %}" class="btn btn-primary">
+                <h5 class="card-title">Nombre:</h5>
+                <p class="card-text">{{ promoter.person.name }}</p>
+
+                <h5 class="card-title">Edad:</h5>
+                <p class="card-text">{{ promoter.age }}</p>
+
+                <h5 class="card-title">Nivel de Escolaridad:</h5>
+                <p class="card-text">{{ promoter.get_school_level_display }}</p>
+
+                <h5 class="card-title">Ocupación:</h5>
+                <p class="card-text">{{ promoter.occupation }}</p>
+
+                <h5 class="card-title">Dirección:</h5>
+                <p class="card-text">{{ promoter.address }}</p>
+
+                <h5 class="card-title">Lugar o teléfono:</h5>
+                <p class="card-text">{{ promoter.phone_or_place }}</p>
+                <a href="{% url 'promoters_update' promoter.id %}" class="btn btn-primary btn-sm">
                     Editar <i class="bi bi-pencil-square"></i>
                 </a>
                 <a href="#"
-                   class="btn btn-danger"
+                   class="btn btn-danger btn-sm"
                    data-bs-toggle="modal"
                    data-bs-target="#confirm-delete">
                     Eliminar <i class="bi bi-trash"></i>
@@ -74,17 +84,17 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="enrollLabel">Eliminar</h5>
+                <h5 class="modal-title" id="confirmDelete">Eliminar</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <p class="lead">Está seguro que desea eliminar al promovente </p>
                 <p class="lead">{{ promoter.person.name }} - {{ promoter.person.last_name }}</p>
             </div>
-            <div class="modal-footer text-center">
+            <div class="modal-footer">
                 <form action="{% url 'promoters_delete' promoter.id %}" method="post"> {% csrf_token %}
-                    <input class="btn btn-danger" type="submit" value="Eliminar">
-                    <a class="btn btn-primary" data-bs-dismiss="modal">Cancelar</a>
+                    <input class="btn btn-danger btn-sm" type="submit" value="Eliminar">
+                    <a class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</a>
                 </form>
             </div>
         </div>

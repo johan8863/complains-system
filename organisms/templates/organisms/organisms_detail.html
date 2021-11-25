@@ -51,16 +51,16 @@
         <div class="card mt-1">
             <h1 class="card-header">{{ organism.name }}</h1>
             <div class="card-body">
-                <h5 class="card-title">Información:</h5>
-                <p class="card-text">Nombre: {{ organism.name }}</p>
-                <a href="{% url 'organisms_update' organism.id %}" class="btn btn-primary">
+                <h5 class="card-title">Nombre:</h5>
+                <p class="card-text">{{ organism.name }}</p>
+                <a href="{% url 'organisms_update' organism.id %}" class="btn btn-primary btn-sm">
                     Editar <i class="bi bi-pencil-square"></i>
                 </a>
                 <a href="#"
-                   class="btn btn-danger"
+                   class="btn btn-danger btn-sm"
                    data-bs-toggle="modal"
                    data-bs-target="#confirm-delete">
-                    Eliminar <i class="bi bi-trash"></i>
+                   Eliminar<i class="bi bi-trash btn-sm"></i>
                 </a>
             </div>
         </div>
@@ -79,10 +79,10 @@
                 <p class="lead">Está seguro que desea eliminar el Organismo </p>
                 <p class="lead">{{ organism.name }}</p>
             </div>
-            <div class="modal-footer text-center">
+            <div class="modal-footer">
                 <form action="{% url 'organisms_delete' organism.id %}" method="post"> {% csrf_token %}
-                    <input class="btn btn-danger" type="submit" value="Eliminar">
-                    <a class="btn btn-primary" data-bs-dismiss="modal">Cancelar</a>
+                    <input class="btn btn-danger btn-sm" type="submit" value="Eliminar">
+                    <a class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</a>
                 </form>
             </div>
         </div>
