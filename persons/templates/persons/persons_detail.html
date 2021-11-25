@@ -51,10 +51,12 @@
         <div class="card mt-1">
             <h1 class="card-header">{{ person.name }} <small>{{ person.last_name }}</small></h1>
             <div class="card-body">
-                <h5 class="card-title">Información:</h5>
-                <p class="card-text">Nombre: {{ person.name }}</p>
-                <p class="card-text">Apellidos: {{ person.last_name }}</p>
-                <p class="card-text">Sexo: {{ person.get_sex_display }}</p>
+                <h6 class="card-title">Nombre:</h6>
+                <p class="card-text">{{ person.name }}</p>
+                <h6 class="card-title">Apellidos:</h6>
+                <p class="card-text">{{ person.last_name }}</p>
+                <h6 class="card-title">Sexo:</h6>
+                <p class="card-text">{{ person.get_sex_display }}</p>
                 <a href="{% url 'persons_update' person.id %}" class="btn btn-primary">
                     Editar <i class="bi bi-pencil-square"></i>
                 </a>
