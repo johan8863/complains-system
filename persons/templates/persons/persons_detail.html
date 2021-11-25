@@ -8,40 +8,38 @@
             <p class="h6 text-center">Personas</p>
             <div class="list-group mb-2">
                 <a href="{% url 'persons_create' %}"
-                   class="list-group-item list-group-item-action list-group-item-primary">
+                    class="list-group-item list-group-item-action list-group-item-primary">
                     Nueva <i class="bi bi-plus-circle"></i>
                 </a>
                 <a href="{% url 'persons_update' person.id %}"
                     class="list-group-item list-group-item-action list-group-item-primary">
                     Editar <i class="bi bi-pencil-square"></i>
                 </a>
-                <a href="#"
-                   class="list-group-item list-group-item-action list-group-item-primary"
-                   data-bs-toggle="modal"
-                   data-bs-target="#confirm-delete">
+                <a href="#" class="list-group-item list-group-item-action list-group-item-primary"
+                    data-bs-toggle="modal" data-bs-target="#confirm-delete">
                     Eliminar <i class="bi bi-trash"></i>
                 </a>
             </div>
             <p class="h6 text-center">Gestión</p>
             <div class="list-group">
                 <a class="list-group-item list-group-item-action list-group-item-primary"
-                   href="{% url 'persons_list' %}">
+                    href="{% url 'persons_list' %}">
                     <i class="bi bi-person"></i> Personas
                 </a>
                 <a class="list-group-item list-group-item-action list-group-item-primary"
-                   href="{% url 'promoters_list' %}">
+                    href="{% url 'promoters_list' %}">
                     <i class="bi bi-person-circle"></i> Promoventes
                 </a>
                 <a class="list-group-item list-group-item-action list-group-item-primary"
-                   href="{% url 'organisms_list' %}">
+                    href="{% url 'organisms_list' %}">
                     <i class="bi bi-diagram-3"></i> Organismos
                 </a>
                 <a class="list-group-item list-group-item-action list-group-item-primary"
-                   href="{% url 'entities_list' %}">
+                    href="{% url 'entities_list' %}">
                     <i class="bi bi-building"></i> Entidades
                 </a>
                 <a class="list-group-item list-group-item-action list-group-item-primary"
-                   href="{% url 'complains_list' %}">
+                    href="{% url 'complains_list' %}">
                     <i class="bi bi-file-text"></i> Quejas
                 </a>
             </div>
@@ -57,11 +55,12 @@
                 <p class="card-text">{{ person.last_name }}</p>
                 <h6 class="card-title">Sexo:</h6>
                 <p class="card-text">{{ person.get_sex_display }}</p>
-                <a href="{% url 'persons_update' person.id %}" class="btn btn-primary">
+                <a href="{% url 'persons_update' person.id %}"
+                   class="btn btn-primary btn-sm">
                     Editar <i class="bi bi-pencil-square"></i>
                 </a>
                 <a href="#"
-                   class="btn btn-danger"
+                   class="btn btn-danger btn-sm"
                    data-bs-toggle="modal"
                    data-bs-target="#confirm-delete">
                     Eliminar <i class="bi bi-trash"></i>
@@ -71,8 +70,8 @@
     </div>
 </div>
 
- <!-- Modal -->
- <div class="modal fade" id="confirm-delete" tabindex="-1" aria-labelledby="confirmDelete" aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="confirm-delete" tabindex="-1" aria-labelledby="confirmDelete" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
