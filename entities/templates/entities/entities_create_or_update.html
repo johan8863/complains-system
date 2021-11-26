@@ -3,46 +3,68 @@
 
 {% block workspace %}
 
+<div class="row gx-2">
+    <div class="col-md-2">
+        {% include 'general/snippets/management_menu.html' %}
+    </div>
+    <div class="col-md p-2 bg-light border rounded">
+        <div class="row">
+            <div class="col-md">
+                <form method="POST"> {% csrf_token %}
+                    {% if entity.id %}
+                    <h4>Actualizar entidad: {{ entity.name }}</h4>
+                    <hr class="mt-0">
+                        {% else %}
+                        <h4>Insertar nueva entidad</h4>
+                        <hr class="mt-0">
+                    {% endif %}
+                    <div class="mb-2">
+                        <label for="name" class="form-label">Nombre: </label>
+                        {{ form.name|add_class:"form-control"|attr:"id:name" }}
+                        {% if form.name.errors %}
+                            {% for error in form.name.errors %}
+                                <small class="form-text text-danger"> {{ error }} </small>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mb-2">
+                        <label for="address" class="form-label">Dirección: </label>
+                        {{ form.address|add_class:"form-control"|attr:"id:address" }}
+                        {% if form.address.errors %}
+                            {% for error in form.address.errors %}
+                                <small class="form-text text-danger"> {{ error }} </small>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mb-2">
+                        <label for="organism" class="form-label">Organismo: </label>
+                        {{ form.organism|add_class:"form-control"|attr:"id:organism" }}
+                        {% if form.organism.errors %}
+                            {% for error in form.organism.errors %}
+                                <small class="form-text text-danger"> {{ error }} </small>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" type="submit">Guardar</button>
+                        {% if entity.id %}
+                        <a class="btn btn-primary" href="{% url 'entities_detail' entity.id %}">Cancelar</a>
+                            {% else %}
+                            <a class="btn btn-primary" href="{% url 'entities_list' %}">Cancelar</a>
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+            <div class="col-md"></div>
+            <div class="col-md"></div>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-        <form method="POST"> {% csrf_token %}
-            <div class="mb-2">
-                <label for="name" class="form-label">Nombre: </label>
-                {{ form.name|add_class:"form-control"|attr:"id:name" }}
-                {% if form.name.errors %}
-                    {% for error in form.name.errors %}
-                        <small class="form-text text-danger"> {{ error }} </small>
-                    {% endfor %}
-                {% endif %}
-            </div>
-            <div class="mb-2">
-                <label for="address" class="form-label">Dirección: </label>
-                {{ form.address|add_class:"form-control"|attr:"id:address" }}
-                {% if form.address.errors %}
-                    {% for error in form.address.errors %}
-                        <small class="form-text text-danger"> {{ error }} </small>
-                    {% endfor %}
-                {% endif %}
-            </div>
-            <div class="mb-2">
-                <label for="organism" class="form-label">Organismo: </label>
-                {{ form.organism|add_class:"form-control"|attr:"id:organism" }}
-                {% if form.organism.errors %}
-                    {% for error in form.organism.errors %}
-                        <small class="form-text text-danger"> {{ error }} </small>
-                    {% endfor %}
-                {% endif %}
-            </div>
-            <div>
-                <button class="btn btn-primary" type="submit">Guardar</button>
-                {% if entity.id %}
-                <a class="btn btn-primary" href="{% url 'entities_detail' entity.id %}">Cancelar</a>
-                    {% else %}
-                    <a class="btn btn-primary" href="{% url 'entities_list' %}">Cancelar</a>
-                {% endif %}
-            </div>
-        </form>
+        
     </div>
     <div class="col-sm-4"></div>
 </div>
