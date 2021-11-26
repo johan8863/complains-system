@@ -25,7 +25,7 @@
             <hr class="mt-0">
         {% endif %}
         <form class="row g-3" method="POST"> {% csrf_token %}
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <label for="name" class="form-label">Fecha: </label>
                 <input type="date" class="form-control" name="reception_date" id="">
                 {% if form.reception_date.errors %}
@@ -52,6 +52,16 @@
                     {% endfor %}
                 {% endif %}
             </div>
+            <div class="col-md-2"></div>
+            <div class="col-sm-2">
+                <label for="management_level" class="form-label">Nivel de Dirección: </label>
+                {{ form.management_level|add_class:"form-select"|attr:"id:management_level" }}
+                {% if form.management_level.errors %}
+                    {% for error in form.management_level.errors %}
+                        <small class="form-text text-danger"> {{ error }} </small>
+                    {% endfor %}
+                {% endif %}
+            </div>
             <div class="col-sm-4">
                 <label for="demmanded_person" class="form-label">Persona demandada: </label>
                 {{ form.demmanded_person|add_class:"form-select"|attr:"id:demmanded_person" }}
@@ -62,21 +72,12 @@
                 {% endif %}
             </div>
             <div class="col-sm-4">
-                <label for="management_level" class="form-label">Nivel de Dirección: </label>
-                {{ form.management_level|add_class:"form-select"|attr:"id:management_level" }}
-                {% if form.management_level.errors %}
-                    {% for error in form.management_level.errors %}
-                        <small class="form-text text-danger"> {{ error }} </small>
-                    {% endfor %}
-                {% endif %}
-            </div>
-            <div class="col-sm-4">
                 <label for="belonging_entity" class="form-label">Entidad Perteneciente: </label>
                 {{ form.belonging_entity|add_class:"form-select"|attr:"id:belonging_entity" }}
                 {% if form.belonging_entity.errors %}
-                    {% for error in form.belonging_entity.errors %}
-                        <small class="form-text text-danger"> {{ error }} </small>
-                    {% endfor %}
+                {% for error in form.belonging_entity.errors %}
+                <small class="form-text text-danger"> {{ error }} </small>
+                {% endfor %}
                 {% endif %}
             </div>
             <div class="col-md-12">
