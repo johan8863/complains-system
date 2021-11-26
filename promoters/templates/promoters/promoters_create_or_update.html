@@ -1,6 +1,15 @@
 {% extends 'general/welcome.html' %}
 {% load widget_tweaks %}
 
+{% block pointer %}
+
+{% if promoter.id %}
+<spam class="text-secondary px-2">Promoventes | Actualizar | {{ promoter.person.name }}</spam>
+    {% else %}
+    <spam class="text-secondary px-2">Promoventes | Insertar</spam>
+{% endif %}
+{% endblock pointer %}
+
 {% block workspace %}
 
 <div class="row gx-2">

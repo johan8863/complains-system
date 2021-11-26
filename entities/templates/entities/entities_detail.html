@@ -1,5 +1,9 @@
 {% extends 'general/welcome.html' %}
 
+{% block pointer %}
+<spam class="text-secondary px-2">Entidades | Detalles | {{ entity.name }}</spam>
+{% endblock pointer %}
+
 {% block workspace %}
 
 <div class="row gx-2">

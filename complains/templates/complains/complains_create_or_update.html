@@ -1,6 +1,15 @@
 {% extends 'general/welcome.html' %}
 {% load widget_tweaks %}
 
+{% block pointer %}
+
+{% if complain.id %}
+<spam class="text-secondary px-2">Quejas | Actualizar</spam>
+    {% else %}
+    <spam class="text-secondary px-2">Quejas | Insertar</spam>
+{% endif %}
+{% endblock pointer %}
+
 {% block workspace %}
 
 <div class="row gx-2">

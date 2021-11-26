@@ -1,6 +1,16 @@
 {% extends 'general/welcome.html' %}
 {% load widget_tweaks %}
 
+{% block pointer %}
+
+{% if organism.id %}
+<spam class="text-secondary px-2">Organismos | Actualizar | {{ organism.name }}</spam>
+    {% else %}
+    <spam class="text-secondary px-2">Organismos | Insertar</spam>
+{% endif %}
+
+{% endblock pointer %}
+
 {% block workspace %}
 
 <div class="row gx-2">

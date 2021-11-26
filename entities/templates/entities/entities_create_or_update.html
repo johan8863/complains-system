@@ -1,6 +1,16 @@
 {% extends 'general/welcome.html' %}
 {% load widget_tweaks %}
 
+{% block pointer %}
+
+{% if entity.id %}
+<spam class="text-secondary px-2">Entidades | Actualizar | {{ entity.name }}</spam>
+    {% else %}
+    <spam class="text-secondary px-2">Entidades | Insertar</spam>
+{% endif %}
+
+{% endblock pointer %}
+
 {% block workspace %}
 
 <div class="row gx-2">
