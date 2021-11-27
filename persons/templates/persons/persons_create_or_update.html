@@ -20,57 +20,54 @@
         </div>
     </div>
     <div class="col-md p-2 bg-light border rounded">
-        <div class="row">
-            <div class="col-md">
-                {% if person.id %}
-                <h4>Actualizar persona: {{ person.name }}</h4>
-                <hr class="mt-0">
-                    {% else %}
-                    <h4>Insertar nueva persona</h4>
-                    <hr class="mt-0">
+        {% if person.id %}
+        <h4>Actualizar persona: {{ person.name }}</h4>
+        <hr class="mt-0">
+            {% else %}
+            <h4>Insertar nueva persona</h4>
+            <hr class="mt-0">
+        {% endif %}
+        <form class="row g-3" method="POST"> {% csrf_token %}
+            <div class="col-md-4">
+                <label for="name" class="form-label">Nombre: </label>
+                {{ form.name|add_class:"form-control"|attr:"id:name" }}
+                {% if form.name.errors %}
+                    {% for error in form.name.errors %}
+                        <small class="form-text text-danger"> {{ error }} </small>
+                    {% endfor %}
                 {% endif %}
-                <form method="POST"> {% csrf_token %}
-                    <div class="mb-2">
-                        <label for="name" class="form-label">Nombre: </label>
-                        {{ form.name|add_class:"form-control"|attr:"id:name" }}
-                        {% if form.name.errors %}
-                            {% for error in form.name.errors %}
-                                <small class="form-text text-danger"> {{ error }} </small>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-
-                    <div class="mb-2">
-                        <label for="name" class="form-label">Apellidos: </label>
-                        {{form.last_name|add_class:"form-control"|attr:"id:last_name"}}
-                        {% if form.last_name.errors %}
-                            {% for error in form.last_name.errors %}
-                                <small class="form-text text-danger"> {{ error }} </small>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div class="mb-2">
-                        <label for="name" class="form-label">Sexo: </label>
-                        {{form.sex|add_class:"form-select"|attr:"id:last_name"}}
-                        {% if form.sex.errors %}
-                            {% for error in form.sex.errors %}
-                                <small class="form-text text-danger"> {{ error }} </small>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div>
-                        <button class="btn btn-primary" type="submit">Guardar</button>
-                        {% if person.id %}
-                        <a class="btn btn-primary" href="{% url 'persons_detail' person.id %}">Cancelar</a>
-                            {% else %}
-                            <a class="btn btn-primary" href="{% url 'persons_list' %}">Cancelar</a>
-                        {% endif %}
-                    </div>
-                </form>
             </div>
-            <div class="col-md"></div>
-            <div class="col-md"></div>
-        </div>
+            <div class="col-md-8"></div>
+
+            <div class="col-md-4">
+                <label for="name" class="form-label">Apellidos: </label>
+                {{form.last_name|add_class:"form-control"|attr:"id:last_name"}}
+                {% if form.last_name.errors %}
+                    {% for error in form.last_name.errors %}
+                        <small class="form-text text-danger"> {{ error }} </small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="col-md-8"></div>
+
+            <div class="col-md-2">
+                <label for="name" class="form-label">Sexo: </label>
+                {{form.sex|add_class:"form-select"|attr:"id:last_name"}}
+                {% if form.sex.errors %}
+                    {% for error in form.sex.errors %}
+                        <small class="form-text text-danger"> {{ error }} </small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="col-md-12">
+                <button class="btn btn-primary" type="submit">Guardar</button>
+                {% if person.id %}
+                <a class="btn btn-primary" href="{% url 'persons_detail' person.id %}">Cancelar</a>
+                    {% else %}
+                    <a class="btn btn-primary" href="{% url 'persons_list' %}">Cancelar</a>
+                {% endif %}
+            </div>
+        </form>
     </div>
 </div>
 
