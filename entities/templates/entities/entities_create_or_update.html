@@ -25,8 +25,8 @@
             <h4>Insertar nueva entidad</h4>
             <hr class="mt-0">
         {% endif %}
-        <form method="POST"> {% csrf_token %}
-            <div class="mb-2">
+        <form class="row g-3" method="POST"> {% csrf_token %}
+            <div class="col-sm-6">
                 <label for="name" class="form-label">Nombre: </label>
                 {{ form.name|add_class:"form-control"|attr:"id:name" }}
                 {% if form.name.errors %}
@@ -35,16 +35,8 @@
                     {% endfor %}
                 {% endif %}
             </div>
-            <div class="mb-2">
-                <label for="address" class="form-label">Dirección: </label>
-                {{ form.address|add_class:"form-control"|attr:"id:address" }}
-                {% if form.address.errors %}
-                    {% for error in form.address.errors %}
-                        <small class="form-text text-danger"> {{ error }} </small>
-                    {% endfor %}
-                {% endif %}
-            </div>
-            <div class="mb-2">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-3">
                 <label for="organism" class="form-label">Organismo: </label>
                 {{ form.organism|add_class:"form-control"|attr:"id:organism" }}
                 {% if form.organism.errors %}
@@ -53,7 +45,18 @@
                     {% endfor %}
                 {% endif %}
             </div>
-            <div>
+            <div class="col-sm-9"></div>
+            <div class="col-sm-6">
+                <label for="address" class="form-label">Dirección: </label>
+                {{ form.address|add_class:"form-control"|attr:"id:address" }}
+                {% if form.address.errors %}
+                    {% for error in form.address.errors %}
+                        <small class="form-text text-danger"> {{ error }} </small>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="col-sm-6"></div>
+            <div class="col-sm-12">
                 <button class="btn btn-primary" type="submit">Guardar</button>
                 {% if entity.id %}
                 <a class="btn btn-primary" href="{% url 'entities_detail' entity.id %}">Cancelar</a>
