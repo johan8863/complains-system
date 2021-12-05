@@ -27,7 +27,7 @@
         <form class="row g-3" method="POST"> {% csrf_token %}
             <div class="col-sm-2">
                 <label for="reception_date" class="form-label">Fecha: </label>
-                <input type="date" class="form-control" name="reception_date" id="">
+                {{ form.reception_date|add_class:"form-control"|attr:"type:date"|attr:"id:reception_date" }}
                 {% if form.reception_date.errors %}
                     {% for error in form.reception_date.errors %}
                         <small class="form-text text-danger"> {{ error }} </small>
@@ -55,7 +55,7 @@
             <div class="col-md-2"></div>
             <div class="col-sm-2">
                 <label for="management_level" class="form-label">Nivel de Dirección: </label>
-                {{ form.management_level|add_class:"form-select"|attr:"id:management_level" }}
+                {{ form.management_level|add_class:"form-control"|attr:"id:management_level" }}
                 {% if form.management_level.errors %}
                     {% for error in form.management_level.errors %}
                         <small class="form-text text-danger"> {{ error }} </small>
