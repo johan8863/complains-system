@@ -7,7 +7,8 @@ from django.urls import reverse_lazy
 
 class Welcome(LoginRequiredMixin, generic.TemplateView):
     login_url = reverse_lazy('login')
-    template_name='general/welcome.html'
+    # template_name='general/welcome.html' to be used in the future
+    template_name='complains/complains_list.html'
 
 
 def logout(request):
