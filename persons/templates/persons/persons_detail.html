@@ -7,48 +7,50 @@
 {% block workspace %}
 
 <div class="row gx-2">
+    <!-- left menu -->
     <div class="col-md-2">
-        <div class="border rounded p-2 bg-light">
-            <p class="h6 text-center">Personas</p>
-            <div class="list-group mb-2">
-                <a href="{% url 'persons_create' %}"
-                    class="list-group-item list-group-item-action list-group-item-primary">
-                    Nueva <i class="bi bi-plus-circle"></i>
-                </a>
-                <a href="{% url 'persons_update' person.id %}"
-                    class="list-group-item list-group-item-action list-group-item-primary">
-                    Editar <i class="bi bi-pencil-square"></i>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action list-group-item-primary"
-                    data-bs-toggle="modal" data-bs-target="#confirm-delete">
-                    Eliminar <i class="bi bi-trash"></i>
-                </a>
+        <aside>
+            <div class="border rounded p-2 bg-light">
+                <p class="h6 text-center">Personas</p>
+                <div class="list-group mb-2">
+                    <a href="{% url 'persons_create' %}"
+                        class="list-group-item list-group-item-action list-group-item-primary">
+                        Nueva <i class="bi bi-plus-circle"></i>
+                    </a>
+                    <a href="{% url 'persons_update' person.id %}"
+                        class="list-group-item list-group-item-action list-group-item-primary">
+                        Editar <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-primary"
+                        data-bs-toggle="modal" data-bs-target="#confirm-delete">
+                        Eliminar <i class="bi bi-trash"></i>
+                    </a>
+                </div>
+                {% include 'general/snippets/management_menu.html' %}
             </div>
-            {% include 'general/snippets/management_menu.html' %}
-        </div>
+        </aside>
     </div>
+    <!-- main menu -->
     <div class="col-md bg-light border rounded">
-        <div class="card my-1">
-            <h1 class="card-header">{{ person.name }} <small>{{ person.last_name }}</small></h1>
-            <div class="card-body">
-                <h6 class="card-title">Nombre:</h6>
-                <p class="card-text">{{ person.name }}</p>
-                <h6 class="card-title">Apellidos:</h6>
-                <p class="card-text">{{ person.last_name }}</p>
-                <h6 class="card-title">Sexo:</h6>
-                <p class="card-text">{{ person.get_sex_display }}</p>
-                <a href="{% url 'persons_update' person.id %}"
-                   class="btn btn-primary btn-sm">
-                    Editar <i class="bi bi-pencil-square"></i>
-                </a>
-                <a href="#"
-                   class="btn btn-danger btn-sm"
-                   data-bs-toggle="modal"
-                   data-bs-target="#confirm-delete">
-                    Eliminar <i class="bi bi-trash"></i>
-                </a>
+        <section>
+            <div class="card my-1">
+                <h1 class="card-header">{{ person.name }} <small>{{ person.last_name }}</small></h1>
+                <div class="card-body">
+                    <h6 class="card-title">Nombre:</h6>
+                    <p class="card-text">{{ person.name }}</p>
+                    <h6 class="card-title">Apellidos:</h6>
+                    <p class="card-text">{{ person.last_name }}</p>
+                    <h6 class="card-title">Sexo:</h6>
+                    <p class="card-text">{{ person.get_sex_display }}</p>
+                    <a href="{% url 'persons_update' person.id %}" class="btn btn-primary btn-sm">
+                        Editar <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirm-delete">
+                        Eliminar <i class="bi bi-trash"></i>
+                    </a>
+                </div>
             </div>
-        </div>
+        </section>
     </div>
 </div>
 

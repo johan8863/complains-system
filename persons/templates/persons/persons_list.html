@@ -8,38 +8,46 @@
 {% block workspace %}
 
 <div class="row gx-2">
+    <!-- left menu -->
     <div class="col-md-2">
-        <div class="border rounded p-2 bg-light">
-            <p class="h6 text-center">Personas</p>
-            <div class="list-group mb-2">
-                <a href="{% url 'persons_create' %}" class="list-group-item list-group-item-action list-group-item-primary">Nueva <i class="bi bi-plus-circle"></i></a>
+        <aside>
+            <div class="border rounded p-2 bg-light">
+                <p class="h6 text-center">Personas</p>
+                <div class="list-group mb-2">
+                    <a href="{% url 'persons_create' %}"
+                        class="list-group-item list-group-item-action list-group-item-primary">Nueva <i
+                            class="bi bi-plus-circle"></i></a>
+                </div>
+                {% include 'general/snippets/management_menu.html' %}
             </div>
-            {% include 'general/snippets/management_menu.html' %}
-        </div>
+        </aside>
     </div>
+    <!-- main content -->
     <div class="col-md p-2 bg-light border rounded">
-        <table class="table table-light table-striped table-hover table-sm" id="datatable">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Sexo</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for person in persons %}
-                <tr>
+        <section>
+            <table class="table table-light table-striped table-hover table-sm" id="datatable">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Sexo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for person in persons %}
+                    <tr>
 
-                    <td><a href="{% url 'persons_detail' person.id %}">{{ person.name }}</a></td>
-                    <td>{{ person.last_name }}</td>
-                    <td>{{ person.get_sex_display }}</td>
-                </tr>
-                {% empty %}
-                <p>No existen personas en la base de datos <a href="{% url 'persons_create' %}">Nueva <i
-                            class="bi bi-plus-circle"></i></a></p>
-                {% endfor %}
-            </tbody>
-        </table>
+                        <td><a href="{% url 'persons_detail' person.id %}">{{ person.name }}</a></td>
+                        <td>{{ person.last_name }}</td>
+                        <td>{{ person.get_sex_display }}</td>
+                    </tr>
+                    {% empty %}
+                    <p>No existen personas en la base de datos <a href="{% url 'persons_create' %}">Nueva <i
+                                class="bi bi-plus-circle"></i></a></p>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
     </div>
 </div>
 
