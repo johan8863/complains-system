@@ -5,8 +5,8 @@
 
 {% if organism.id %}
 <spam class="text-secondary px-2">Organismos | Actualizar | {{ organism.name }}</spam>
-    {% else %}
-    <spam class="text-secondary px-2">Organismos | Insertar</spam>
+{% else %}
+<spam class="text-secondary px-2">Organismos | Insertar</spam>
 {% endif %}
 
 {% endblock pointer %}
@@ -14,44 +14,50 @@
 {% block workspace %}
 
 <div class="row gx-2">
+    <!-- left menu -->
     <div class="col-md-2">
-        <div class="border rounded p-2 bg-light">
-            {% include 'general/snippets/management_menu.html' %}
-        </div>
+        <aside>
+            <div class="border rounded p-2 bg-light">
+                {% include 'general/snippets/management_menu.html' %}
+            </div>
+        </aside>
     </div>
+    <!-- main content -->
     <div class="col-md p-2 bg-light border rounded">
-        <div class="row">
-            <div class="col-md">
-                {% if organism.id %}
-                <h4>Actualizar organismo {{ organism.name }}</h4>
-                <hr class="mt-0">
+        <section>
+            <div class="row">
+                <div class="col-md">
+                    {% if organism.id %}
+                    <h4>Actualizar organismo {{ organism.name }}</h4>
+                    <hr class="mt-0">
                     {% else %}
                     <h4>Insertar nuevo organismo</h4>
                     <hr class="mt-0">
-                {% endif %}
-                <form method="POST"> {% csrf_token %}
-                    <div class="mb-2">
-                        <label for="name" class="form-label">Nombre: </label>
-                        {{ form.name|add_class:"form-control"|attr:"id:name" }}
-                        {% if form.name.errors %}
+                    {% endif %}
+                    <form method="POST"> {% csrf_token %}
+                        <div class="mb-2">
+                            <label for="name" class="form-label">Nombre: </label>
+                            {{ form.name|add_class:"form-control"|attr:"id:name" }}
+                            {% if form.name.errors %}
                             {% for error in form.name.errors %}
-                                <small class="form-text text-danger"> {{ error }} </small>
+                            <small class="form-text text-danger"> {{ error }} </small>
                             {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div>
-                        <button class="btn btn-primary" type="submit">Guardar</button>
-                        {% if organism.id %}
-                        <a class="btn btn-primary" href="{% url 'organisms_detail' organism.id %}">Cancelar</a>
+                            {% endif %}
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" type="submit">Guardar</button>
+                            {% if organism.id %}
+                            <a class="btn btn-primary" href="{% url 'organisms_detail' organism.id %}">Cancelar</a>
                             {% else %}
                             <a class="btn btn-primary" href="{% url 'organisms_list' %}">Cancelar</a>
-                        {% endif %}
-                    </div>
-                </form>
+                            {% endif %}
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md"></div>
+                <div class="col-md"></div>
             </div>
-            <div class="col-md"></div>
-            <div class="col-md"></div>
-        </div>
+        </section>
     </div>
 </div>
 

@@ -7,50 +7,51 @@
 {% block workspace %}
 
 <div class="row gx-2">
+    <!-- left menu -->
     <div class="col-md-2">
-        <div class="border rounded p-2 bg-light">
-            <p class="h6 text-center">Organismos</p>
-            <div class="list-group mb-2">
-                <a href="{% url 'organisms_create' %}"
-                   class="list-group-item list-group-item-action list-group-item-primary">
-                    Nuevo <i class="bi bi-plus-circle"></i>
-                </a>
-                <a href="{% url 'organisms_update' organism.id %}"
-                    class="list-group-item list-group-item-action list-group-item-primary">
-                    Editar <i class="bi bi-pencil-square"></i>
-                </a>
-                <a href="#"
-                   class="list-group-item list-group-item-action list-group-item-primary"
-                   data-bs-toggle="modal"
-                   data-bs-target="#confirm-delete">
-                    Eliminar <i class="bi bi-trash"></i>
-                </a>
+        <aside>
+            <div class="border rounded p-2 bg-light">
+                <p class="h6 text-center">Organismos</p>
+                <div class="list-group mb-2">
+                    <a href="{% url 'organisms_create' %}"
+                        class="list-group-item list-group-item-action list-group-item-primary">
+                        Nuevo <i class="bi bi-plus-circle"></i>
+                    </a>
+                    <a href="{% url 'organisms_update' organism.id %}"
+                        class="list-group-item list-group-item-action list-group-item-primary">
+                        Editar <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-primary"
+                        data-bs-toggle="modal" data-bs-target="#confirm-delete">
+                        Eliminar <i class="bi bi-trash"></i>
+                    </a>
+                </div>
+                {% include 'general/snippets/management_menu.html' %}
             </div>
-            {% include 'general/snippets/management_menu.html' %}
-        </div>
+        </aside>
     </div>
+    <!-- main content -->
     <div class="col-md bg-light border rounded">
-        <div class="card my-1">
-            <h1 class="card-header">{{ organism.name }}</h1>
-            <div class="card-body">
-                <h5 class="card-title">Nombre:</h5>
-                <p class="card-text">{{ organism.name }}</p>
-                <a href="{% url 'organisms_update' organism.id %}" class="btn btn-primary btn-sm">
-                    Editar <i class="bi bi-pencil-square"></i>
-                </a>
-                <a href="#"
-                   class="btn btn-danger btn-sm"
-                   data-bs-toggle="modal"
-                   data-bs-target="#confirm-delete">
-                   Eliminar<i class="bi bi-trash btn-sm"></i>
-                </a>
+        <section>
+            <div class="card my-1">
+                <h1 class="card-header">{{ organism.name }}</h1>
+                <div class="card-body">
+                    <h5 class="card-title">Nombre:</h5>
+                    <p class="card-text">{{ organism.name }}</p>
+                    <a href="{% url 'organisms_update' organism.id %}" class="btn btn-primary btn-sm">
+                        Editar <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirm-delete">
+                        Eliminar<i class="bi bi-trash btn-sm"></i>
+                    </a>
+                </div>
             </div>
-        </div>
+        </section>
     </div>
 </div>
 
- <!-- Modal -->
- <div class="modal fade" id="confirm-delete" tabindex="-1" aria-labelledby="confirmDelete" aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="confirm-delete" tabindex="-1" aria-labelledby="confirmDelete" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
