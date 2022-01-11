@@ -7,36 +7,45 @@
 {% block workspace %}
 
 <div class="row gx-2">
+    <!-- left menu -->
     <div class="col-md-2">
-        <div class="border rounded p-2 bg-light">
-            <p class="h6 text-center">Entidades</p>
-            <div class="list-group mb-2">
-                <a href="{% url 'entities_create' %}" class="list-group-item list-group-item-action list-group-item-primary">Nueva <i class="bi bi-plus-circle"></i></a>
+        <aside>
+            <div class="border rounded p-2 bg-light">
+                <p class="h6 text-center">Entidades</p>
+                <div class="list-group mb-2">
+                    <a href="{% url 'entities_create' %}"
+                        class="list-group-item list-group-item-action list-group-item-primary">Nueva <i
+                            class="bi bi-plus-circle"></i></a>
+                </div>
+                {% include 'general/snippets/management_menu.html' %}
             </div>
-            {% include 'general/snippets/management_menu.html' %}
-        </div>
+        </aside>
     </div>
+    <!-- main content -->
     <div class="col-md p-2 bg-light border rounded">
-        <table class="table table-light table-striped table-hover table-sm" id="datatable">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Dirección</th>
-                    <th>Organismo</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for entity in entities %}
-                <tr>
-                    <td><a href="{% url 'entities_detail' entity.id %}">{{ entity.name }}</a></td>
-                    <td>{{ entity.address }}</td>
-                    <td>{{ entity.organism }}</td>
-                </tr>
-                {% empty %}
-                <p>No existen entidades en la base de datos <a href="{% url 'entities_create' %}">Nueva <i class="bi bi-plus-circle"></i></a></p>
-                {% endfor %}
-            </tbody>
-        </table>
+        <section>
+            <table class="table table-light table-striped table-hover table-sm" id="datatable">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Organismo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+                    <tr>
+                        <td><a href="{% url 'entities_detail' entity.id %}">{{ entity.name }}</a></td>
+                        <td>{{ entity.address }}</td>
+                        <td>{{ entity.organism }}</td>
+                    </tr>
+                    {% empty %}
+                    <p>No existen entidades en la base de datos <a href="{% url 'entities_create' %}">Nueva <i
+                                class="bi bi-plus-circle"></i></a></p>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
     </div>
 </div>
 

@@ -5,8 +5,8 @@
 
 {% if entity.id %}
 <spam class="text-secondary px-2">Entidades | Actualizar | {{ entity.name }}</spam>
-    {% else %}
-    <spam class="text-secondary px-2">Entidades | Insertar</spam>
+{% else %}
+<spam class="text-secondary px-2">Entidades | Insertar</spam>
 {% endif %}
 
 {% endblock pointer %}
@@ -14,64 +14,70 @@
 {% block workspace %}
 
 <div class="row gx-2">
+    <!-- left menu -->
     <div class="col-md-2">
-        {% include 'general/snippets/management_menu.html' %}
+        <aside>
+            {% include 'general/snippets/management_menu.html' %}
+        </aside>
     </div>
+    <!-- main content -->
     <div class="col-md p-2 bg-light border rounded">
-        {% if entity.id %}
-        <h4>Actualizar entidad: {{ entity.name }}</h4>
-        <hr class="mt-0">
+        <section>
+            {% if entity.id %}
+            <h4>Actualizar entidad: {{ entity.name }}</h4>
+            <hr class="mt-0">
             {% else %}
             <h4>Insertar nueva entidad</h4>
             <hr class="mt-0">
-        {% endif %}
-        <form class="row g-3" method="POST"> {% csrf_token %}
-            <div class="col-sm-6">
-                <label for="name" class="form-label">Nombre: </label>
-                {{ form.name|add_class:"form-control"|attr:"id:name" }}
-                {% if form.name.errors %}
+            {% endif %}
+            <form class="row g-3" method="POST"> {% csrf_token %}
+                <div class="col-sm-6">
+                    <label for="name" class="form-label">Nombre: </label>
+                    {{ form.name|add_class:"form-control"|attr:"id:name" }}
+                    {% if form.name.errors %}
                     {% for error in form.name.errors %}
-                        <small class="form-text text-danger"> {{ error }} </small>
+                    <small class="form-text text-danger"> {{ error }} </small>
                     {% endfor %}
-                {% endif %}
-            </div>
-            <div class="col-sm-6"></div>
-            <div class="col-sm-3">
-                <label for="organism" class="form-label">Organismo: </label>
-                {{ form.organism|add_class:"form-control"|attr:"id:organism" }}
-                {% if form.organism.errors %}
+                    {% endif %}
+                </div>
+                <div class="col-sm-6"></div>
+                <div class="col-sm-3">
+                    <label for="organism" class="form-label">Organismo: </label>
+                    {{ form.organism|add_class:"form-control"|attr:"id:organism" }}
+                    {% if form.organism.errors %}
                     {% for error in form.organism.errors %}
-                        <small class="form-text text-danger"> {{ error }} </small>
+                    <small class="form-text text-danger"> {{ error }} </small>
                     {% endfor %}
-                {% endif %}
-            </div>
-            <div class="col-sm-9"></div>
-            <div class="col-sm-6">
-                <label for="address" class="form-label">Dirección: </label>
-                {{ form.address|add_class:"form-control"|attr:"id:address" }}
-                {% if form.address.errors %}
+                    {% endif %}
+                </div>
+                <div class="col-sm-9"></div>
+                <div class="col-sm-6">
+                    <label for="address" class="form-label">Dirección: </label>
+                    {{ form.address|add_class:"form-control"|attr:"id:address" }}
+                    {% if form.address.errors %}
                     {% for error in form.address.errors %}
-                        <small class="form-text text-danger"> {{ error }} </small>
+                    <small class="form-text text-danger"> {{ error }} </small>
                     {% endfor %}
-                {% endif %}
-            </div>
-            <div class="col-sm-6"></div>
-            <div class="col-sm-12">
-                <button class="btn btn-primary" type="submit">Guardar</button>
-                {% if entity.id %}
-                <a class="btn btn-primary" href="{% url 'entities_detail' entity.id %}">Cancelar</a>
+                    {% endif %}
+                </div>
+                <div class="col-sm-6"></div>
+                <div class="col-sm-12">
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                    {% if entity.id %}
+                    <a class="btn btn-primary" href="{% url 'entities_detail' entity.id %}">Cancelar</a>
                     {% else %}
                     <a class="btn btn-primary" href="{% url 'entities_list' %}">Cancelar</a>
-                {% endif %}
-            </div>
-        </form>
+                    {% endif %}
+                </div>
+            </form>
+        </section>
     </div>
 </div>
 
 <div class="row">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-        
+
     </div>
     <div class="col-sm-4"></div>
 </div>
