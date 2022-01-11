@@ -7,42 +7,48 @@
 {% block workspace %}
 
 <div class="row gx-2">
+    <!-- left menu -->
     <div class="col-md-2">
-        <div class="border rounded p-2 bg-light">
-            <p class="h6 text-center">Promoventes</p>
-            <div class="list-group mb-2">
-                <a href="{% url 'promoters_create' %}"
-                    class="list-group-item list-group-item-action list-group-item-primary">
-                    Nuevo <i class="bi bi-plus-circle"></i>
-                </a>
+        <aside>
+            <div class="border rounded p-2 bg-light">
+                <p class="h6 text-center">Promoventes</p>
+                <div class="list-group mb-2">
+                    <a href="{% url 'promoters_create' %}"
+                        class="list-group-item list-group-item-action list-group-item-primary">
+                        Nuevo <i class="bi bi-plus-circle"></i>
+                    </a>
+                </div>
+                {% include 'general/snippets/management_menu.html' %}
             </div>
-            {% include 'general/snippets/management_menu.html' %}
-        </div>
+        </aside>
     </div>
+    <!-- main menu -->
     <div class="col-md p-2 bg-light border rounded">
-        <table class="table table-light table-striped table-hover table-sm" id="datatable">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Edad</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for promoter in promoters %}
-                <tr>
-                    <td>
-                        <a href="{% url 'promoters_detail' promoter.id %}">{{ promoter.person.name }}</a>
-                    </td>
-                    <td>{{ promoter.person.last_name }}</td>
-                    <td>{{ promoter.age }}</td>
-                </tr>
-                {% empty %}
-                <p>No existen promoventes en la base de datos <a href="{% url 'promoters_create' %}">Nuevo <i
-                            class="bi bi-plus-circle"></i></a></p>
-                {% endfor %}
-            </tbody>
-        </table>
+        <section>
+            <table class="table table-light table-striped table-hover table-sm" id="datatable">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Edad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for promoter in promoters %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'promoters_detail' promoter.id %}">{{ promoter.person.name }}</a>
+                        </td>
+                        <td>{{ promoter.person.last_name }}</td>
+                        <td>{{ promoter.age }}</td>
+                    </tr>
+                    {% empty %}
+                    <p>No existen promoventes en la base de datos <a href="{% url 'promoters_create' %}">Nuevo <i
+                                class="bi bi-plus-circle"></i></a></p>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
     </div>
 </div>
 

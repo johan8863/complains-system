@@ -5,96 +5,102 @@
 
 {% if promoter.id %}
 <spam class="text-secondary px-2">Promoventes | Actualizar | {{ promoter.person.name }}</spam>
-    {% else %}
-    <spam class="text-secondary px-2">Promoventes | Insertar</spam>
+{% else %}
+<spam class="text-secondary px-2">Promoventes | Insertar</spam>
 {% endif %}
 {% endblock pointer %}
 
 {% block workspace %}
 
 <div class="row gx-2">
+    <!-- left menu -->
     <div class="col-md-2">
-        <div class="border rounded p-2 bg-light">
-            {% include 'general/snippets/management_menu.html' %}
-        </div>
+        <aside>
+            <div class="border rounded p-2 bg-light">
+                {% include 'general/snippets/management_menu.html' %}
+            </div>
+        </aside>
     </div>
+    <!-- main menu -->
     <div class="col-md p-2 bg-light border rounded">
-        {% if promoter.id %}
-        <h4>Actualizar promovente: {{ promoter.person.name }}</h4>
-        <hr class="mt-0">
-        {% else %}
-        <h4>Insertar nuevo promovente</h4>
-        <hr class="mt-0">
-        {% endif %}
-        <form class="row g-3" method="POST"> {% csrf_token %}
-            <div class="col-md-6">
-                <label for="person" class="form-label">Persona: </label>
-                {{ form.person|add_class:"form-select"|attr:"id:person" }}
-                {% if form.person.errors %}
-                {% for error in form.person.errors %}
-                <small> {{ error }} </small>
-                {% endfor %}
-                {% endif %}
-            </div>
-            <div class="col-md-6"></div>
-            <div class="col-md-1">
-                <label for="age" class="form-label">Edad: </label>
-                {{ form.age|add_class:"form-control"|attr:"id:age" }}
-                {% if form.age.errors %}
-                {% for error in form.age.errors %}
-                <small> {{ error }} </small>
-                {% endfor %}
-                {% endif %}
-            </div>
-            <div class="col-md-2">
-                <label for="school_level" class="form-label">Nivel Escolar: </label>
-                {{ form.school_level|add_class:"form-select"|attr:"id:school_level" }}
-                {% if form.school_level.errors %}
-                {% for error in form.school_level.errors %}
-                <small> {{ error }} </small>
-                {% endfor %}
-                {% endif %}
-            </div>
-            <div class="col-md-9"></div>
-            <div class="col-md-6">
-                <label for="occupation" class="form-label">Ocupación: </label>
-                {{ form.occupation|add_class:"form-control"|attr:"id:occupation" }}
-                {% if form.occupation.errors %}
-                {% for error in form.occupation.errors %}
-                <small> {{ error }} </small>
-                {% endfor %}
-                {% endif %}
-            </div>
-            <div class="col-md-6"></div>
-            <div class="col-md-6">
-                <label for="address" class="form-label">Dirección: </label>
-                {{ form.address|add_class:"form-control"|attr:"id:address" }}
-                {% if form.address.errors %}
-                {% for error in form.address.errors %}
-                <small> {{ error }} </small>
-                {% endfor %}
-                {% endif %}
-            </div>
-            <div class="col-md-6"></div>
-            <div class="col-md-4">
-                <label for="phone_or_place" class="form-label">Teléfono o Lugar: </label>
-                {{ form.phone_or_place|add_class:"form-control"|attr:"id:phone_or_place" }}
-                {% if form.phone_or_place.errors %}
-                {% for error in form.phone_or_place.errors %}
-                <small> {{ error }} </small>
-                {% endfor %}
-                {% endif %}
-            </div>
-            <div class="col-md-6"></div>
-            <div class="col-md-12">
-                <button class="btn btn-primary" type="submit">Guardar</button>
-                {% if promoter.id %}
-                <a class="btn btn-primary" href="{% url 'promoters_detail' promoter.id %}">Cancelar</a>
-                {% else %}
-                <a class="btn btn-primary" href="{% url 'promoters_list' %}">Cancelar</a>
-                {% endif %}
-            </div>
-        </form>
+        <section>
+            {% if promoter.id %}
+            <h4>Actualizar promovente: {{ promoter.person.name }}</h4>
+            <hr class="mt-0">
+            {% else %}
+            <h4>Insertar nuevo promovente</h4>
+            <hr class="mt-0">
+            {% endif %}
+            <form class="row g-3" method="POST"> {% csrf_token %}
+                <div class="col-md-6">
+                    <label for="person" class="form-label">Persona: </label>
+                    {{ form.person|add_class:"form-select"|attr:"id:person" }}
+                    {% if form.person.errors %}
+                    {% for error in form.person.errors %}
+                    <small> {{ error }} </small>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-1">
+                    <label for="age" class="form-label">Edad: </label>
+                    {{ form.age|add_class:"form-control"|attr:"id:age" }}
+                    {% if form.age.errors %}
+                    {% for error in form.age.errors %}
+                    <small> {{ error }} </small>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="col-md-2">
+                    <label for="school_level" class="form-label">Nivel Escolar: </label>
+                    {{ form.school_level|add_class:"form-select"|attr:"id:school_level" }}
+                    {% if form.school_level.errors %}
+                    {% for error in form.school_level.errors %}
+                    <small> {{ error }} </small>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="col-md-9"></div>
+                <div class="col-md-6">
+                    <label for="occupation" class="form-label">Ocupación: </label>
+                    {{ form.occupation|add_class:"form-control"|attr:"id:occupation" }}
+                    {% if form.occupation.errors %}
+                    {% for error in form.occupation.errors %}
+                    <small> {{ error }} </small>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <label for="address" class="form-label">Dirección: </label>
+                    {{ form.address|add_class:"form-control"|attr:"id:address" }}
+                    {% if form.address.errors %}
+                    {% for error in form.address.errors %}
+                    <small> {{ error }} </small>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-4">
+                    <label for="phone_or_place" class="form-label">Teléfono o Lugar: </label>
+                    {{ form.phone_or_place|add_class:"form-control"|attr:"id:phone_or_place" }}
+                    {% if form.phone_or_place.errors %}
+                    {% for error in form.phone_or_place.errors %}
+                    <small> {{ error }} </small>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-12">
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                    {% if promoter.id %}
+                    <a class="btn btn-primary" href="{% url 'promoters_detail' promoter.id %}">Cancelar</a>
+                    {% else %}
+                    <a class="btn btn-primary" href="{% url 'promoters_list' %}">Cancelar</a>
+                    {% endif %}
+                </div>
+            </form>
+        </section>
     </div>
 </div>
 
