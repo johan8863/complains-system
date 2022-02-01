@@ -4,3 +4,6 @@
 2 - Debug the fact that meta options for model Person are not working properly
     when the existing Person exception is thrown in the create and update views
     for the Promoter model.
+3- The complain creation form must validate in first place that the promoter cannot be
+   the demmanded person. Must then reload the select with the persons available to demmand
+   to suppress the one that matches te current promoter.
