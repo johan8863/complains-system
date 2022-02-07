@@ -30,6 +30,15 @@
             <hr class="mt-0">
             {% endif %}
             <form class="row g-3" method="POST" autocomplete="off"> {% csrf_token %}
+                <div class="row">
+                    <div class="col">
+                        <ul>
+                            {% for error in form.non_field_errors %}
+                            <li><small class="form-text text-danger"> {{ error }} </small></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
                 <div class="col-sm-2">
                     <label for="reception_date" class="form-label">Fecha: </label>
                     {{ form.reception_date|add_class:"form-control"|attr:"type:date"|attr:"id:reception_date" }}

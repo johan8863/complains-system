@@ -8,7 +8,8 @@ from .models import Complain
 # Complain's CRUD #
 class ComplainCreate(LoginRequiredMixin, generic.CreateView):
     model = Complain
-    fields = '__all__'
+    # fields = '__all__'
+    form_class = ComplainForm
     template_name = 'complains/complains_create_or_update.html'
 
 

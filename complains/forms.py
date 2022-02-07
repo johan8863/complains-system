@@ -1,5 +1,6 @@
 from django import forms
 from .models import Complain
+from django.core.exceptions import ValidationError
 
 
 class ComplainForm(forms.ModelForm):
@@ -15,3 +16,14 @@ class ComplainForm(forms.ModelForm):
                 format=('%Y-%m-%d'),
                 ),
         }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        promoter = cleaned_data.get('promoter')
+        demmanded_person = cleaned_data.get('demmanded_person')
+        print(promoter)
+        print(demmanded_person)
+        if promoter.person.id == demmanded_person.id:
+            raise ValidationError('El promovente y la persona demandada no pueden ser el mismo/a')
+        else:
+            return cleaned_data
