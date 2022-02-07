@@ -30,7 +30,7 @@
             <h4>Insertar nueva entidad</h4>
             <hr class="mt-0">
             {% endif %}
-            <form class="row g-3" method="POST"> {% csrf_token %}
+            <form class="row g-3" method="POST" autocomplete="off"> {% csrf_token %}
                 <div class="col-sm-6">
                     <label for="name" class="form-label">Nombre: </label>
                     {{ form.name|add_class:"form-control"|attr:"id:name" }}

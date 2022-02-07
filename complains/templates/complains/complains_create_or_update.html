@@ -29,7 +29,7 @@
             <h4>Insertar nueva queja</h4>
             <hr class="mt-0">
             {% endif %}
-            <form class="row g-3" method="POST"> {% csrf_token %}
+            <form class="row g-3" method="POST" autocomplete="off"> {% csrf_token %}
                 <div class="col-sm-2">
                     <label for="reception_date" class="form-label">Fecha: </label>
                     {{ form.reception_date|add_class:"form-control"|attr:"type:date"|attr:"id:reception_date" }}

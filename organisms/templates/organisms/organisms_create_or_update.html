@@ -34,7 +34,7 @@
                     <h4>Insertar nuevo organismo</h4>
                     <hr class="mt-0">
                     {% endif %}
-                    <form method="POST"> {% csrf_token %}
+                    <form method="POST" autocomplete="off"> {% csrf_token %}
                         <div class="mb-2">
                             <label for="name" class="form-label">Nombre: </label>
                             {{ form.name|add_class:"form-control"|attr:"id:name" }}

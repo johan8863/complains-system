@@ -31,7 +31,7 @@
             <h4>Insertar nuevo promovente</h4>
             <hr class="mt-0">
             {% endif %}
-            <form class="row g-3" method="POST"> {% csrf_token %}
+            <form class="row g-3" method="POST" autocomplete="off"> {% csrf_token %}
                 <div class="col-md-6">
                     <label for="person" class="form-label">Persona: </label>
                     {{ form.person|add_class:"form-select"|attr:"id:person" }}
