@@ -6,7 +6,7 @@ from organisms.models import Organism
 class Entity(models.Model):
     name = models.CharField('Nombre', max_length=250)
     address = models.TextField('Dirección')
-    organism = models.ForeignKey(Organism, on_delete=models.CASCADE)
+    organism = models.ForeignKey(Organism, on_delete=models.CASCADE, verbose_name=Organism._meta.verbose_name)
 
     class Meta:
         verbose_name = 'Entidad'

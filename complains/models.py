@@ -10,11 +10,11 @@ from promoters.models import Promoter
 
 class Complain(models.Model):
     reception_date = models.DateField('Fecha de recepción')
-    promoter = models.ForeignKey(Promoter, on_delete=models.CASCADE)
-    demmanded_entity = models.ForeignKey(Entity, null=True, blank=True, on_delete=models.CASCADE, related_name='demmanded_entity')
-    demmanded_person = models.ForeignKey(Person, null=True, blank=True, on_delete=models.CASCADE)
+    promoter = models.ForeignKey(Promoter, on_delete=models.CASCADE, verbose_name=Promoter._meta.verbose_name)
+    demmanded_entity = models.ForeignKey(Entity, null=True, blank=True, on_delete=models.CASCADE, related_name='demmanded_entity', verbose_name=Entity._meta.verbose_name)
+    demmanded_person = models.ForeignKey(Person, null=True, blank=True, on_delete=models.CASCADE, verbose_name=Person._meta.verbose_name)
     management_level = models.CharField('Nivel de dirección que involucra', max_length=220)
-    belonging_entity = models.ForeignKey(Entity, on_delete=models.CASCADE, related_name='belonging_entity')
+    belonging_entity = models.ForeignKey(Entity, on_delete=models.CASCADE, related_name='belonging_entity', verbose_name=Person._meta.verbose_name)
     problem = models.TextField('Planteamiento')
     
     class Meta:

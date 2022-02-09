@@ -11,7 +11,7 @@ class Promoter(models.Model):
         ('uni', 'Universitario'),
     ]
 
-    person = models.OneToOneField(Person, on_delete=models.CASCADE)
+    person = models.OneToOneField(Person, on_delete=models.CASCADE, verbose_name=Person._meta.verbose_name)
     age = models.PositiveIntegerField('Edad')
     school_level = models.CharField('Nivel Escolar', max_length=3, choices=SCHOOL_LEVEL_CHOICES)
     occupation = models.CharField('Ocupación', max_length=150, null=True, blank=True)
