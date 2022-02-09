@@ -43,10 +43,10 @@
                     <p class="card-text">{{ complain.promoter }}</p>
 
                     <h5 class="card-title">Entidad demandada:</h5>
-                    <p class="card-text">{{ complain.demmanded_entity }}</p>
+                    <p class="card-text">{{ complain.demmanded_entity|default_if_none:"-" }}</p>
 
                     <h5 class="card-title">Persona demandada:</h5>
-                    <p class="card-text">{{ complain.demmanded_person }}</p>
+                    <p class="card-text">{{ complain.demmanded_person|default_if_none:"-" }}</p>
 
                     <h5 class="card-title">Nivel de administración:</h5>
                     <p class="card-text">{{ complain.management_level }}</p>

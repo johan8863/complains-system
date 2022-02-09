@@ -46,10 +46,10 @@
                     <p class="card-text">{{ promoter.get_school_level_display }}</p>
 
                     <h5 class="card-title">Ocupación:</h5>
-                    <p class="card-text">{{ promoter.occupation }}</p>
+                    <p class="card-text">{{ promoter.occupation|default_if_none:"-" }}</p>
 
                     <h5 class="card-title">Dirección:</h5>
-                    <p class="card-text">{{ promoter.address }}</p>
+                    <p class="card-text">{{ promoter.address|default_if_none:"-" }}</p>
 
                     <h5 class="card-title">Lugar o teléfono:</h5>
                     <p class="card-text">{{ promoter.phone_or_place|default_if_none:"-" }}</p>
