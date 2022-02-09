@@ -1,5 +1,6 @@
 from django import forms
 from .models import Complain
+from entities.models import Entity
 from django.core.exceptions import ValidationError
 
 
@@ -21,9 +22,12 @@ class ComplainForm(forms.ModelForm):
         cleaned_data = super().clean()
         promoter = cleaned_data.get('promoter')
         demmanded_person = cleaned_data.get('demmanded_person')
-        print(promoter)
-        print(demmanded_person)
         if promoter.person.id == demmanded_person.id:
-            raise ValidationError('El promovente y la persona demandada no pueden ser el mismo/a')
+            # the first argument of the add_error method is set to None
+            # so the error will be added to the non_field_errors attribute
+
+            # if any other validation is necesary in the future, all errors will be
+            # raised at once and all the mistakes mada by the user will be seen together.
+            self.add_error(None, 'La persona no puede ser igual al promovente')
         else:
             return cleaned_data
