@@ -52,7 +52,7 @@
                     <p class="card-text">{{ promoter.address }}</p>
 
                     <h5 class="card-title">Lugar o teléfono:</h5>
-                    <p class="card-text">{{ promoter.phone_or_place }}</p>
+                    <p class="card-text">{{ promoter.phone_or_place|default_if_none:"-" }}</p>
                     <a href="{% url 'promoters_update' promoter.id %}" class="btn btn-primary btn-sm">
                         Editar <i class="bi bi-pencil-square"></i>
                     </a>
