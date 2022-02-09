@@ -22,12 +22,14 @@ class ComplainForm(forms.ModelForm):
         cleaned_data = super().clean()
         promoter = cleaned_data.get('promoter')
         demmanded_person = cleaned_data.get('demmanded_person')
-        if promoter.person.id == demmanded_person.id:
+        demmanded_entity = cleaned_data.get('demmanded_entity')
+        if demmanded_person and demmanded_entity:
             # the first argument of the add_error method is set to None
             # so the error will be added to the non_field_errors attribute
-
-            # if any other validation is necesary in the future, all errors will be
-            # raised at once and all the mistakes mada by the user will be seen together.
-            self.add_error(None, 'La persona no puede ser igual al promovente')
+            self.add_error(None, 'Debe insertar una persona o una entidad demandada, no ambas.')
+        elif not demmanded_person and not demmanded_entity:
+            self.add_error(None, 'Debe insertar una persona o una entidad demandada.')
+        elif promoter.person.id == demmanded_person.id:
+            self.add_error(None, 'La persona no puede ser igual al promovente.')
         else:
             return cleaned_data
