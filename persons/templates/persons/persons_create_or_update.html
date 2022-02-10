@@ -65,11 +65,11 @@
                     {% endif %}
                 </div>
                 <div class="col-md-12">
-                    <button class="btn btn-primary" type="submit">Guardar</button>
+                    <button class="btn btn-primary btn-sm" type="submit">Guardar</button>
                     {% if person.id %}
-                    <a class="btn btn-primary" href="{% url 'persons_detail' person.id %}">Cancelar</a>
+                    <a class="btn btn-primary btn-sm" href="{% url 'persons_detail' person.id %}">Cancelar</a>
                     {% else %}
-                    <a class="btn btn-primary" href="{% url 'persons_list' %}">Cancelar</a>
+                    <a class="btn btn-primary btn-sm" href="{% url 'persons_list' %}">Cancelar</a>
                     {% endif %}
                 </div>
             </form>
