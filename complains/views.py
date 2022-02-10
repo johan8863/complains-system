@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
 from django.views import generic
 from django.urls import reverse_lazy
 from .forms import ComplainForm
@@ -8,7 +9,6 @@ from .models import Complain
 # Complain's CRUD #
 class ComplainCreate(LoginRequiredMixin, generic.CreateView):
     model = Complain
-    # fields = '__all__'
     form_class = ComplainForm
     template_name = 'complains/complains_create_or_update.html'
 

@@ -62,11 +62,11 @@
                 </div>
                 <div class="col-sm-6"></div>
                 <div class="col-sm-12">
-                    <button class="btn btn-primary" type="submit">Guardar</button>
+                    <button class="btn btn-primary btn-sm" type="submit">Guardar</button>
                     {% if entity.id %}
-                    <a class="btn btn-primary" href="{% url 'entities_detail' entity.id %}">Cancelar</a>
+                    <a class="btn btn-primary btn-sm" href="{% url 'entities_detail' entity.id %}">Cancelar</a>
                     {% else %}
-                    <a class="btn btn-primary" href="{% url 'entities_list' %}">Cancelar</a>
+                    <a class="btn btn-primary btn-sm" href="{% url 'entities_list' %}">Cancelar</a>
                     {% endif %}
                 </div>
             </form>

@@ -29,7 +29,8 @@ class ComplainForm(forms.ModelForm):
             self.add_error(None, 'Debe insertar una persona o una entidad demandada, no ambas.')
         elif not demmanded_person and not demmanded_entity:
             self.add_error(None, 'Debe insertar una persona o una entidad demandada.')
-        elif promoter.person.id == demmanded_person.id:
-            self.add_error(None, 'La persona no puede ser igual al promovente.')
+        elif demmanded_person:
+            if promoter.person.id == demmanded_person.id:
+                self.add_error(None, 'La persona no puede ser igual al promovente.')
         else:
             return cleaned_data

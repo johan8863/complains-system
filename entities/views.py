@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
 from django.views import generic
 from django.urls import reverse_lazy
 from .models import Entity
@@ -9,6 +10,7 @@ class EntityCreate(LoginRequiredMixin, generic.CreateView):
     model = Entity
     fields = '__all__'
     template_name = 'entities/entities_create_or_update.html'
+            
 
 
 class EntityList(LoginRequiredMixin, generic.ListView):
