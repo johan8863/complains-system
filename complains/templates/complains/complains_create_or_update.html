@@ -29,7 +29,7 @@
             <h4>Insertar nueva queja</h4>
             <hr class="mt-0">
             {% endif %}
-            <form class="row g-3" method="POST" autocomplete="off"> {% csrf_token %}
+            <form class="row g-3 needs-validation" method="POST" novalidate autocomplete="off"> {% csrf_token %}
                 <div class="row">
                     <div class="col text-danger">
                         {{ form.non_field_errors }}
@@ -38,6 +38,9 @@
                 <div class="col-sm-2">
                     <label for="reception_date" class="form-label">Fecha: </label>
                     {{ form.reception_date|add_class:"form-control"|attr:"type:date"|attr:"id:reception_date" }}
+                    <div class="invalid-feedback">
+                        La fecha es requerida.
+                    </div>
                     {% if form.reception_date.errors %}
                     {% for error in form.reception_date.errors %}
                     <small class="form-text text-danger"> {{ error }} </small>
@@ -47,6 +50,9 @@
                 <div class="col-sm-4">
                     <label for="promoter" class="form-label">Promovente: </label>
                     {{ form.promoter|add_class:"form-control"|attr:"id:promoter" }}
+                    <div class="invalid-feedback">
+                        El promovente es requerido.
+                    </div>
                     {% if form.promoter.errors %}
                     {% for error in form.promoter.errors %}
                     <small class="form-text text-danger"> {{ error }} </small>
@@ -66,6 +72,9 @@
                 <div class="col-sm-2">
                     <label for="management_level" class="form-label">Nivel de Dirección: </label>
                     {{ form.management_level|add_class:"form-control"|attr:"id:management_level" }}
+                    <div class="invalid-feedback">
+                        El nivel de dirección es requerido.
+                    </div>
                     {% if form.management_level.errors %}
                     {% for error in form.management_level.errors %}
                     <small class="form-text text-danger"> {{ error }} </small>
@@ -84,6 +93,9 @@
                 <div class="col-sm-4">
                     <label for="belonging_entity" class="form-label">Entidad Perteneciente: </label>
                     {{ form.belonging_entity|add_class:"form-select"|attr:"id:belonging_entity" }}
+                    <div class="invalid-feedback">
+                        La entidad es requerida.
+                    </div>
                     {% if form.belonging_entity.errors %}
                     {% for error in form.belonging_entity.errors %}
                     <small class="form-text text-danger"> {{ error }} </small>
@@ -93,6 +105,9 @@
                 <div class="col-md-12">
                     <label for="problem" class="form-label">Planteamiento: </label>
                     {{form.problem|add_class:"form-control"|attr:"id:problem" }}
+                    <div class="invalid-feedback">
+                        El planteamiento es requerido.
+                    </div>
                     {% if form.problem.errors %}
                     {% for error in form.problem.errors %}
                     <small class="form-text text-danger"> {{ error }} </small>
@@ -120,6 +135,29 @@
     </div>
     <div class="col-sm-4"></div>
 </div>
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+        }, false)
+    })
+})()
+</script>
 
 
 {% endblock workspace %}

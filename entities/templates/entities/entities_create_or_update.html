@@ -30,10 +30,13 @@
             <h4>Insertar nueva entidad</h4>
             <hr class="mt-0">
             {% endif %}
-            <form class="row g-3" method="POST" autocomplete="off"> {% csrf_token %}
+            <form class="row g-3 needs-validation" method="POST" novalidate autocomplete="off"> {% csrf_token %}
                 <div class="col-sm-6">
                     <label for="name" class="form-label">Nombre: </label>
                     {{ form.name|add_class:"form-control"|attr:"id:name" }}
+                    <div class="invalid-feedback">
+                        El nombre es requerido.
+                    </div>
                     {% if form.name.errors %}
                     {% for error in form.name.errors %}
                     <small class="form-text text-danger"> {{ error }} </small>
@@ -44,6 +47,9 @@
                 <div class="col-sm-3">
                     <label for="organism" class="form-label">Organismo: </label>
                     {{ form.organism|add_class:"form-control"|attr:"id:organism" }}
+                    <div class="invalid-feedback">
+                        El organismo es requerido.
+                    </div>
                     {% if form.organism.errors %}
                     {% for error in form.organism.errors %}
                     <small class="form-text text-danger"> {{ error }} </small>
@@ -54,6 +60,9 @@
                 <div class="col-sm-6">
                     <label for="address" class="form-label">Dirección: </label>
                     {{ form.address|add_class:"form-control"|attr:"id:address" }}
+                    <div class="invalid-feedback">
+                        La dirección es requerida.
+                    </div>
                     {% if form.address.errors %}
                     {% for error in form.address.errors %}
                     <small class="form-text text-danger"> {{ error }} </small>
@@ -82,6 +91,27 @@
     <div class="col-sm-4"></div>
 </div>
 
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+    'use strict'
 
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+        }, false)
+    })
+})()
+</script>
 
 {% endblock workspace %}
