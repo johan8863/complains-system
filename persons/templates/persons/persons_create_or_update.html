@@ -32,10 +32,13 @@
             <h4>Insertar nueva persona</h4>
             <hr class="mt-0">
             {% endif %}
-            <form class="row g-3" method="POST" autocomplete="off"> {% csrf_token %}
+            <form class="row g-3 needs-validation" method="POST" novalidate autocomplete="off"> {% csrf_token %}
                 <div class="col-md-4">
                     <label for="name" class="form-label">Nombre: </label>
                     {{ form.name|add_class:"form-control"|attr:"id:name" }}
+                    <div class="invalid-feedback">
+                        El nombre es requerido.
+                    </div>
                     {% if form.name.errors %}
                     {% for error in form.name.errors %}
                     <small class="form-text text-danger"> {{ error }} </small>
@@ -47,6 +50,9 @@
                 <div class="col-md-4">
                     <label for="name" class="form-label">Apellidos: </label>
                     {{form.last_name|add_class:"form-control"|attr:"id:last_name"}}
+                    <div class="invalid-feedback">
+                        Los Apellidos son requeridos.
+                    </div>
                     {% if form.last_name.errors %}
                     {% for error in form.last_name.errors %}
                     <small class="form-text text-danger"> {{ error }} </small>
@@ -58,6 +64,9 @@
                 <div class="col-md-2">
                     <label for="name" class="form-label">Sexo: </label>
                     {{form.sex|add_class:"form-select"|attr:"id:last_name"}}
+                    <div class="invalid-feedback">
+                        El sexo es requerido.
+                    </div>
                     {% if form.sex.errors %}
                     {% for error in form.sex.errors %}
                     <small class="form-text text-danger"> {{ error }} </small>
@@ -76,5 +85,28 @@
         </section>
     </div>
 </div>
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
 
 {% endblock workspace %}
