@@ -124,7 +124,6 @@ STATICFILES_DIRS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     BASE_DIR / "static/",
-    BASE_DIR / "node_modules/",
 ]
 
 # Default primary key field type
