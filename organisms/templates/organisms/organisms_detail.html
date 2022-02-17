@@ -1,4 +1,4 @@
-{% extends 'general/welcome.html' %}
+{% extends 'welcome.html' %}
 
 {% block pointer %}
 <spam class="text-secondary px-2">Organismos | Detalles | {{ organism.name }}</spam>
@@ -26,7 +26,7 @@
                         Eliminar <i class="bi bi-trash"></i>
                     </a>
                 </div>
-                {% include 'general/snippets/management_menu.html' %}
+                {% include 'snippets/management_menu.html' %}
             </div>
         </aside>
     </div>
