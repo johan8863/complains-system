@@ -16,3 +16,4 @@ persons/migrations/__pycache__
 promoters/__pycache__
 promoters/migrations/__pycache__
 static/npm/node_modules
+static/node_modules
