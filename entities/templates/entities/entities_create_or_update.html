@@ -33,7 +33,7 @@
             <form class="row g-3 needs-validation" method="POST" novalidate autocomplete="off"> {% csrf_token %}
                 <div class="col-sm-6">
                     <label for="name" class="form-label">Nombre: </label>
-                    {{ form.name|add_class:"form-control"|attr:"id:name" }}
+                    {{ form.name|add_class:"form-control" }}
                     <div class="invalid-feedback">
                         El nombre es requerido.
                     </div>
@@ -46,7 +46,7 @@
                 <div class="col-sm-6"></div>
                 <div class="col-sm-3">
                     <label for="organism" class="form-label">Organismo: </label>
-                    {{ form.organism|add_class:"form-control"|attr:"id:organism" }}
+                    {{ form.organism|add_class:"form-control" }}
                     <div class="invalid-feedback">
                         El organismo es requerido.
                     </div>
@@ -59,7 +59,7 @@
                 <div class="col-sm-9"></div>
                 <div class="col-sm-6">
                     <label for="address" class="form-label">Dirección: </label>
-                    {{ form.address|add_class:"form-control"|attr:"id:address" }}
+                    {{ form.address|add_class:"form-control" }}
                     <div class="invalid-feedback">
                         La dirección es requerida.
                     </div>

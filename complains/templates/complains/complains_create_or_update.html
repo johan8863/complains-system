@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-sm-2">
                     <label for="reception_date" class="form-label">Fecha: </label>
-                    {{ form.reception_date|add_class:"form-control"|attr:"type:date"|attr:"id:reception_date" }}
+                    {{ form.reception_date|add_class:"form-control"|attr:"type:date" }}
                     <div class="invalid-feedback">
                         La fecha es requerida.
                     </div>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-sm-4">
                     <label for="promoter" class="form-label">Promovente: </label>
-                    {{ form.promoter|add_class:"form-control"|attr:"id:promoter" }}
+                    {{ form.promoter|add_class:"form-control" }}
                     <div class="invalid-feedback">
                         El promovente es requerido.
                     </div>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="col-sm-4">
                     <label for="demmanded_entity" class="form-label">Entidad demandada: </label>
-                    {{ form.demmanded_entity|add_class:"form-select"|attr:"id:demmanded_entity" }}
+                    {{ form.demmanded_entity|add_class:"form-select" }}
                     {% if form.demmanded_entity.errors %}
                     {% for error in form.demmanded_entity.errors %}
                     <small class="form-text text-danger"> {{ error }} </small>
@@ -71,7 +71,7 @@
                 <div class="col-md-2"></div>
                 <div class="col-sm-2">
                     <label for="management_level" class="form-label">Nivel de Dirección: </label>
-                    {{ form.management_level|add_class:"form-control"|attr:"id:management_level" }}
+                    {{ form.management_level|add_class:"form-control" }}
                     <div class="invalid-feedback">
                         El nivel de dirección es requerido.
                     </div>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="col-sm-4">
                     <label for="demmanded_person" class="form-label">Persona demandada: </label>
-                    {{ form.demmanded_person|add_class:"form-select"|attr:"id:demmanded_person" }}
+                    {{ form.demmanded_person|add_class:"form-select" }}
                     {% if form.demmanded_person.errors %}
                     {% for error in form.demmanded_person.errors %}
                     <small class="form-text text-danger"> {{ error }} </small>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="col-sm-4">
                     <label for="belonging_entity" class="form-label">Entidad Perteneciente: </label>
-                    {{ form.belonging_entity|add_class:"form-select"|attr:"id:belonging_entity" }}
+                    {{ form.belonging_entity|add_class:"form-select" }}
                     <div class="invalid-feedback">
                         La entidad es requerida.
                     </div>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="col-md-12">
                     <label for="problem" class="form-label">Planteamiento: </label>
-                    {{form.problem|add_class:"form-control"|attr:"id:problem" }}
+                    {{form.problem|add_class:"form-control" }}
                     <div class="invalid-feedback">
                         El planteamiento es requerido.
                     </div>

@@ -35,7 +35,7 @@
             <form class="row g-3 needs-validation" method="POST" novalidate autocomplete="off"> {% csrf_token %}
                 <div class="col-md-4">
                     <label for="name" class="form-label">Nombre: </label>
-                    {{ form.name|add_class:"form-control"|attr:"id:name" }}
+                    {{ form.name|add_class:"form-control" }}
                     <div class="invalid-feedback">
                         El nombre es requerido.
                     </div>
@@ -49,7 +49,7 @@
 
                 <div class="col-md-4">
                     <label for="name" class="form-label">Apellidos: </label>
-                    {{form.last_name|add_class:"form-control"|attr:"id:last_name"}}
+                    {{form.last_name|add_class:"form-control" }}
                     <div class="invalid-feedback">
                         Los Apellidos son requeridos.
                     </div>
@@ -63,7 +63,7 @@
 
                 <div class="col-md-2">
                     <label for="name" class="form-label">Sexo: </label>
-                    {{form.sex|add_class:"form-select"|attr:"id:last_name"}}
+                    {{form.sex|add_class:"form-select" }}
                     <div class="invalid-feedback">
                         El sexo es requerido.
                     </div>
@@ -73,6 +73,7 @@
                     {% endfor %}
                     {% endif %}
                 </div>
+                
                 <div class="col-md-12">
                     <button class="btn btn-primary btn-sm" type="submit">Guardar</button>
                     {% if person.id %}
