@@ -1,2 +1,0 @@
-3- The complain creation form must reload the select with the persons available to demmand
-   to suppress the one that matches te current promoter.
